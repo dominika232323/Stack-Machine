@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StackMachineApp", "StackMachineApp\StackMachineApp.vcxproj", "{C254A1A0-6BD9-4465-B614-2FB4DE666CA1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StackMachineLib", "StackMachineLib\StackMachineLib.vcxproj", "{AD1BC51A-56B9-4103-9BA8-CE7A9A2AC339}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StackMachineUnitTest", "StackMachineUnitTest\StackMachineUnitTest.vcxproj", "{FA7B1942-C45E-428E-A302-5EFA28E589BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +25,22 @@ Global
 		{C254A1A0-6BD9-4465-B614-2FB4DE666CA1}.Release|x64.Build.0 = Release|x64
 		{C254A1A0-6BD9-4465-B614-2FB4DE666CA1}.Release|x86.ActiveCfg = Release|Win32
 		{C254A1A0-6BD9-4465-B614-2FB4DE666CA1}.Release|x86.Build.0 = Release|Win32
+		{AD1BC51A-56B9-4103-9BA8-CE7A9A2AC339}.Debug|x64.ActiveCfg = Debug|x64
+		{AD1BC51A-56B9-4103-9BA8-CE7A9A2AC339}.Debug|x64.Build.0 = Debug|x64
+		{AD1BC51A-56B9-4103-9BA8-CE7A9A2AC339}.Debug|x86.ActiveCfg = Debug|Win32
+		{AD1BC51A-56B9-4103-9BA8-CE7A9A2AC339}.Debug|x86.Build.0 = Debug|Win32
+		{AD1BC51A-56B9-4103-9BA8-CE7A9A2AC339}.Release|x64.ActiveCfg = Release|x64
+		{AD1BC51A-56B9-4103-9BA8-CE7A9A2AC339}.Release|x64.Build.0 = Release|x64
+		{AD1BC51A-56B9-4103-9BA8-CE7A9A2AC339}.Release|x86.ActiveCfg = Release|Win32
+		{AD1BC51A-56B9-4103-9BA8-CE7A9A2AC339}.Release|x86.Build.0 = Release|Win32
+		{FA7B1942-C45E-428E-A302-5EFA28E589BC}.Debug|x64.ActiveCfg = Debug|x64
+		{FA7B1942-C45E-428E-A302-5EFA28E589BC}.Debug|x64.Build.0 = Debug|x64
+		{FA7B1942-C45E-428E-A302-5EFA28E589BC}.Debug|x86.ActiveCfg = Debug|Win32
+		{FA7B1942-C45E-428E-A302-5EFA28E589BC}.Debug|x86.Build.0 = Debug|Win32
+		{FA7B1942-C45E-428E-A302-5EFA28E589BC}.Release|x64.ActiveCfg = Release|x64
+		{FA7B1942-C45E-428E-A302-5EFA28E589BC}.Release|x64.Build.0 = Release|x64
+		{FA7B1942-C45E-428E-A302-5EFA28E589BC}.Release|x86.ActiveCfg = Release|Win32
+		{FA7B1942-C45E-428E-A302-5EFA28E589BC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
