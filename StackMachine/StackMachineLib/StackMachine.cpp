@@ -14,14 +14,14 @@ public:
 	~StackMachine();
 
 	void executeOperations(/*filename*/);		// wykonuje operacje z pliku
-	void saveToFile(/*filename*/);
+	void saveToFile(/*filename*/);				// zapisuje stos do pliku
 
-	void addition();
+	void addition();					// dzia³ania na stosie jakby ktoœ chcia³ u¿ywaæ StackMachine bez pliku z operacjami
 	void subtraction();
 	void multiplication();
 	void division();
 
 	void push(T value);
-	void pop();
+	void pop();			// lub T pop();
 };
 
