@@ -13,6 +13,8 @@ public:
 	Stack(T value);
 	~Stack();
 
+	std::vector<T> getStack();
+
 	void push(T value);
 	T pop();
 };

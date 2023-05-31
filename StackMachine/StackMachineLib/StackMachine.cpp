@@ -16,9 +16,12 @@ public:
 	void executeOperations(/*filename*/);		// wykonuje operacje z pliku
 	void saveToFile(/*filename*/);
 
-	void executeAddition();
-	void executeSubtraction();
-	void executeMultiplication();
-	void executeDivision();
+	void addition();
+	void subtraction();
+	void multiplication();
+	void division();
+
+	void push(T value);
+	void pop();
 };
 
