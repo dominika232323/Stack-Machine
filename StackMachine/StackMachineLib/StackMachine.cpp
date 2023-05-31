@@ -14,7 +14,7 @@ private:
 
 public:
 	StackMachine();
-	StackMachine(/*filename*/);					// czyta zapisany stos z pliku
+	//StackMachine(/*filename*/);					// czyta zapisany stos z pliku
 	~StackMachine();
 
 	void executeOperations(/*filename*/);		// wykonuje operacje z pliku

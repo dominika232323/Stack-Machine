@@ -6,7 +6,7 @@ template<typename T>
 class Operation
 {
 public:
-	virtual void execute(Stack& s) = 0;
+	virtual void execute(Stack<T>& s) = 0;
 };
 
 /*
