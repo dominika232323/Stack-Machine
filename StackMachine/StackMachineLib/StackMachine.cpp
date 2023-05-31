@@ -20,6 +20,5 @@ public:
 	void executeSubtraction();
 	void executeMultiplication();
 	void executeDivision();
-	void executeModulo();
 };
 

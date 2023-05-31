@@ -1,14 +1,14 @@
 #include "CppUnitTest.h"
-#include "../StackMachineLib/StackMachine.cpp"
+#include "../StackMachineLib/Stack.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace StackMachineUnitTest
 {
-	TEST_CLASS(StackMachineUnitTest)
+	TEST_CLASS(Stack)
 	{
 	public:
-		
+
 		TEST_METHOD(TestMethod1)
 		{
 		}
