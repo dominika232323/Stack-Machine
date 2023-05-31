@@ -69,5 +69,27 @@ namespace StackUnitTest
 			Assert::AreEqual(size_t(3), s.size());
 			Assert::IsFalse(s.isEmpty());
 		}
+		TEST_METHOD(top_fromEmpty)
+		{
+			Assert::ExpectException<std::out_of_range>([]
+			{
+				Stack<int> s;
+				s.top();
+			});
+		}
+		TEST_METHOD(top)
+		{
+			Stack<int> s(6);
+			s.push(12);
+			s.push(16);
+			s.push(14);
+			s.push(25);
+			int a = s.top();
+			std::vector<int> expected = { 6, 12, 16, 14, 25 };
+			Assert::IsTrue(expected == s.getStack());
+			Assert::AreEqual(size_t(5), s.size());
+			Assert::IsFalse(s.isEmpty());
+			Assert::AreEqual(25, a);
+		}
 	};
 }
