@@ -1,5 +1,9 @@
 #pragma once
 #include "Stack.cpp"
+#include "OperationAddition.cpp"
+#include "OperationSubtraction.cpp"
+#include "OperationMultiplication.cpp"
+#include "OperationDivision.cpp"
 
 
 template<typename T>

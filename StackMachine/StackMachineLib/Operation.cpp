@@ -1,11 +1,12 @@
 #pragma once
+#include "Stack.cpp"
 
 
 template<typename T>
 class Operation
 {
 public:
-	virtual void execute(T a, T b) = 0;
+	virtual void execute(Stack& s) = 0;
 };
 
 /*

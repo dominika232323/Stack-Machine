@@ -1,9 +1,10 @@
 #pragma once
+#include "Operation.cpp"
 
 
 template<typename T>
 class OperationMultiplication : public Operation
 {
 public:
-	void execute(T a, T b);
+	void execute(Stack& s);
 };
