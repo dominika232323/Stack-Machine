@@ -8,7 +8,6 @@ namespace StackUnitTest
 	TEST_CLASS(StackUnitTest)
 	{
 	public:
-
 		TEST_METHOD(constructorDefault)
 		{
 			Stack<int> s;
