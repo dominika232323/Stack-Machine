@@ -156,7 +156,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="OperationAdditionUnitTest.cpp" />
+    <ClCompile Include="OperationDivisionUnitTest.cpp" />
+    <ClCompile Include="OperationMultiplicationUnitTest.cpp" />
+    <ClCompile Include="OperationSubtraction.cpp" />
     <ClCompile Include="StackMachineUnitTest.cpp" />
+    <ClCompile Include="StackUnitTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

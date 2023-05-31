@@ -140,13 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Operation.cpp" />
+    <ClCompile Include="OperationAddition.cpp" />
+    <ClCompile Include="OperationDivision.cpp" />
+    <ClCompile Include="OperationMultiplication.cpp" />
+    <ClCompile Include="OperationSubtraction.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackMachine.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Operation.h" />
-    <ClInclude Include="Stack.h" />
-    <ClInclude Include="StackMachine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
