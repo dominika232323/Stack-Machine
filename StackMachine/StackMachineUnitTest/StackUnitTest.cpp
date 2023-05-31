@@ -46,5 +46,28 @@ namespace StackUnitTest
 			Assert::AreEqual(size_t(5), s.size());
 			Assert::IsFalse(s.isEmpty());
 		}
+		TEST_METHOD(pop_fromEmpty)
+		{
+			Stack<int> s;
+			s.pop();
+			std::vector<int> expected = { };
+			Assert::IsTrue(expected == s.getStack());
+			Assert::AreEqual(size_t(0), s.size());
+			Assert::IsTrue(s.isEmpty());
+		}
+		TEST_METHOD(pop)
+		{
+			Stack<int> s(6);
+			s.push(12);
+			s.push(16);
+			s.push(14);
+			s.push(25);
+			s.pop();
+			s.pop();
+			std::vector<int> expected = { 6, 12, 16 };
+			Assert::IsTrue(expected == s.getStack());
+			Assert::AreEqual(size_t(3), s.size());
+			Assert::IsFalse(s.isEmpty());
+		}
 	};
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <stdexcept>
 
 
 template<typename T>
@@ -19,7 +20,7 @@ public:
 	bool isEmpty();
 
 	void push(T value);
-	T pop();
+	void pop();
 
 	T top();
 };
@@ -65,13 +66,17 @@ void Stack<T>::push(T value)
 }
 
 template<typename T>
-T Stack<T>::pop()
+void Stack<T>::pop()
 {
-	return stack.pop_back();
+	if (!isEmpty())
+		stack.pop_back();
 }
 
 template<typename T>
 T Stack<T>::top()
 {
-	return stack.end();
+	if (isEmpty())
+		throw std::out_of_range("Empty stack!");
+
+	return stack.back();
 }
