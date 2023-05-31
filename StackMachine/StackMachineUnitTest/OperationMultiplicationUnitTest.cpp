@@ -3,9 +3,9 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace StackMachineUnitTest
+namespace OperationMultiplicationUnitTest
 {
-	TEST_CLASS(OperationMultiplication)
+	TEST_CLASS(OperationMultiplicationUnitTest)
 	{
 	public:
 

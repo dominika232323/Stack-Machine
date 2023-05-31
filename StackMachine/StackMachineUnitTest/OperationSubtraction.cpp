@@ -3,9 +3,9 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace StackMachineUnitTest
+namespace OperationSubtractionUnitTest
 {
-	TEST_CLASS(OperationSubtraction)
+	TEST_CLASS(OperationSubtractionUnitTest)
 	{
 	public:
 
