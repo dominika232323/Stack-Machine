@@ -4,6 +4,9 @@
 #include "OperationSubtraction.cpp"
 #include "OperationMultiplication.cpp"
 #include "OperationDivision.cpp"
+#include "OperationXor.cpp"
+#include "OperationNot.cpp"
+#include "OperationSwap.cpp"
 
 
 template<typename T>
@@ -20,10 +23,18 @@ public:
 	void executeOperations(/*filename*/);		// wykonuje operacje z pliku
 	void saveToFile(/*filename*/);				// zapisuje stos do pliku
 
-	void addition();					// dzia³ania na stosie jakby ktoœ chcia³ u¿ywaæ StackMachine bez pliku z operacjami
-	void subtraction();
-	void multiplication();
-	void division();
+	void exectueAddition();					// dzia³ania na stosie jakby ktoœ chcia³ u¿ywaæ StackMachine bez pliku z operacjami
+	void exectueSubtraction();
+	void exectueMultiplication();
+	void exectueDivision();
+
+	void exectueAnd();
+	void exectueOr();
+	void exectueXor();
+	void exectueNot();
+
+	void exectueSwap();
+	void exectueDuplicate();
 
 	void push(T value);
 	void pop();			// lub T pop();
