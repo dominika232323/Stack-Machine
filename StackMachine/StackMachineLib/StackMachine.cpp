@@ -17,11 +17,11 @@ private:
 
 public:
 	StackMachine();
-	//StackMachine(/*filename*/);					// czyta zapisany stos z pliku
+	StackMachine(std::string filename);					// czyta zapisany stos z pliku
 	~StackMachine();
 
-	void executeOperations(/*filename*/);		// wykonuje operacje z pliku
-	void saveToFile(/*filename*/);				// zapisuje stos do pliku
+	void executeOperationsFromFile(std::string filename);		// wykonuje operacje z pliku
+	void saveToFile(std::string filename);				// zapisuje stos do pliku
 
 	void exectueAddition();					// dzia³ania na stosie jakby ktoœ chcia³ u¿ywaæ StackMachine bez pliku z operacjami
 	void exectueSubtraction();
