@@ -5,7 +5,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace OperationAdditionUnitTest
 {
-	TEST_CLASS(OperationAdditionTests)
+	TEST_CLASS(OperationAdditionUnitTest)
 	{
 	public:
 		TEST_METHOD(execute_ZeroElementsOnStack)

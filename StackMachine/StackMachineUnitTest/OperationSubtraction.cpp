@@ -5,7 +5,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace OperationSubtractionUnitTest
 {
-	TEST_CLASS(OperationSubtractionTests)
+	TEST_CLASS(OperationSubtractionUnitTest)
 	{
 	public:
 
