@@ -143,6 +143,7 @@
     <ClCompile Include="OperationAddition.cpp" />
     <ClCompile Include="OperationDivision.cpp" />
     <ClCompile Include="OperationMultiplication.cpp" />
+    <ClCompile Include="OperationNot.cpp" />
     <ClCompile Include="OperationSubtraction.cpp" />
     <ClCompile Include="OperationXor.cpp" />
     <ClCompile Include="Stack.cpp" />

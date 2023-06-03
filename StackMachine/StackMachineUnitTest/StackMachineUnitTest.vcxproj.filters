@@ -36,5 +36,8 @@
     <ClCompile Include="OperationXorUnitTest.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="OperationNotUnitTest.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
