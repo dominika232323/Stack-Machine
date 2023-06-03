@@ -4,16 +4,26 @@
 
 int main()
 {
-	std::cout << "Welcome to stack machine!" << std::endl;
+	/*std::cout << "Welcome to stack machine!" << std::endl;
 	std::cout << "Choose 1 to read stack machine from file." << std::endl;
 	std::cout << "Choose 2 to start a new stack machine." << std::endl;
 	std::cout << "Choose 3 to exit." << std::endl;
 	std::cout << "I choose: ";
 
 	int choice;
-	std::cin >> choice;
+	std::cin >> choice;*/
 
-	switch (choice)
+	char a = 'a', b = 'f';
+	std::cout << a + b << std::endl;
+	std::cout << a - b << std::endl;
+	std::cout << a * b << std::endl;
+	std::cout << a / b << std::endl;
+	std::cout << (a & b) << std::endl;
+	std::cout << (a | b) << std::endl;
+	std::cout << (a ^ b) << std::endl;
+	std::cout << ~a << std::endl;
+
+	/*switch (choice)
 	{
 	case 1:
 		std::cout << "Give path to file with your stack: ";
@@ -44,6 +54,6 @@ int main()
 		default:
 
 		}
-	}
+	}*/
 
 }
