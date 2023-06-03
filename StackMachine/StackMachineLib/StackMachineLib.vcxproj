@@ -144,6 +144,7 @@
     <ClCompile Include="OperationDivision.cpp" />
     <ClCompile Include="OperationMultiplication.cpp" />
     <ClCompile Include="OperationSubtraction.cpp" />
+    <ClCompile Include="OperationXor.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackMachine.cpp" />
   </ItemGroup>

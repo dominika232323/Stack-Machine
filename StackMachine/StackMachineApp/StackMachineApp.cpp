@@ -3,5 +3,8 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int a = 5;
+    int b = 9;
+    int c = a | b;
+    std::cout << a << "     " << b << "     " << c;
 }
