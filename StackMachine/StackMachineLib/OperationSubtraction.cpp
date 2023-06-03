@@ -14,5 +14,10 @@ public:
 			T b = topAndPopOnStack(s);
 			s.push(b - a);
 		}
+		else if (s.size() == 1)
+		{
+			T a = topAndPopOnStack(s);
+			s.push(-1 * a);
+		}
 	}
 };
