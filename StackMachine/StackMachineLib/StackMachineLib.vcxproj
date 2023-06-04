@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Operation.cpp" />
     <ClCompile Include="OperationAddition.cpp" />
+    <ClCompile Include="OperationAnd.cpp" />
     <ClCompile Include="OperationDivision.cpp" />
     <ClCompile Include="OperationList.cpp" />
     <ClCompile Include="OperationMultiplication.cpp" />
