@@ -27,18 +27,29 @@ void chooseOperation(int& choice)
 	std::cout << "Choose 9 to execute swap." << std::endl;
 	std::cout << "Choose 10 to execute duplicate." << std::endl;
 	std::cout << "Choose 11 to execute operation from txt file." << std::endl;
-	std::cout << "Choose 12 to save stack machine to txt file." << std::endl;
-	std::cout << "Choose 13 to exit." << std::endl;
+	std::cout << "Choose 12 to push value to stack." << std::endl;
+	std::cout << "Choose 13 to pop value from stack." << std::endl;
+	std::cout << "Choose 14 to save stack machine to txt file." << std::endl;
+	std::cout << "Choose 15 to exit." << std::endl;
 	std::cout << "I choose: ";
 	std::cin >> choice;
 }
+
+
+template<typename T>
+void printStack(StackMachine<T>& stackMachine)
+{
+	std::cout << "Your stack: " << std::endl;
+	std::cout << stackMachine << std::endl;
+}
+
 
 template<typename T>
 void operateOnStackMachine(StackMachine<T>& stackMachine)
 {
 	int choice = 0;
 
-	while (choice != 13)
+	while (choice != 15)
 	{
 		chooseOperation(choice);
 
@@ -46,54 +57,80 @@ void operateOnStackMachine(StackMachine<T>& stackMachine)
 		{
 		case 1:
 			stackMachine.exectueAddition();
+			printStack(stackMachine);
 			break;
 
 		case 2:
 			stackMachine.exectueSubtraction();
+			printStack(stackMachine);
 			break;
 
 		case 3:
 			stackMachine.exectueMultiplication();
+			printStack(stackMachine);
 			break;
 
 		case 4:
 			stackMachine.exectueDivision();
+			printStack(stackMachine);
 			break;
 
 		case 5:
 			stackMachine.exectueAnd();
+			printStack(stackMachine);
 			break;
 
 		case 6:
 			stackMachine.exectueOr();
+			printStack(stackMachine);
 			break;
 
 		case 7:
 			stackMachine.exectueXor();
+			printStack(stackMachine);
 			break;
 
 		case 8:
 			stackMachine.exectueNot();
+			printStack(stackMachine);
 			break;
 
 		case 9:
 			stackMachine.exectueDuplicate();
+			printStack(stackMachine);
 			break;
 
 		case 10:
 			stackMachine.exectueDuplicate();
+			printStack(stackMachine);
 			break;
 
 		case 11:
-			std::cout << "Give path to file with your stack: ";
+			std::cout << "Give path to file with your operations: ";
 			
 			std::string filename;
 			std::cin >> filename;
 			
 			stackMachine.executeOperationsFromFile(filename);
+			printStack(stackMachine);
 			break;
 
 		case 12:
+			std::cout << "Give value to push to stack: ";
+
+			T value;
+			std::cin >> value;
+
+			stackMachine.push(value);
+			printStack(stackMachine);
+			break;
+
+		case 13:
+			stackMachine.pop();
+			printStack(stackMachine);
+			break;
+
+		case 14:
 			std::cout << "Give path to file where you want to save your stack: ";
 
 			std::string filename;
