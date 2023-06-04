@@ -10,7 +10,12 @@ inline void chooseStackMachineCreation(int& choice)
 	std::cout << "Choose 2 to start a new stack machine." << std::endl;
 	std::cout << "Choose 3 to exit." << std::endl;
 	std::cout << "I choose: ";
-	std::cin >> choice;
+
+	while (!(std::cin >> choice)) {
+		std::cout << "Invalid input. Please enter an integer: ";
+		std::cin.clear();               // Clear error flags
+		std::cin.ignore(10000, '\n');   // Discard input buffer
+	}
 }
 
 
