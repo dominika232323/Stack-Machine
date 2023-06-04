@@ -4,6 +4,16 @@
 #include "../StackMachineLib/StackMachine.cpp"
 
 
+void invalidInput(int& choice)
+{
+	while (!(std::cin >> choice))
+	{
+		std::cout << "Invalid input. Please enter an integer: ";
+		std::cin.unget();
+	}
+}
+
+
 inline void chooseStackMachineCreation(int& choice)
 {
 	std::cout << "Choose 1 to read stack machine from file." << std::endl;
@@ -11,11 +21,7 @@ inline void chooseStackMachineCreation(int& choice)
 	std::cout << "Choose 3 to exit." << std::endl;
 	std::cout << "I choose: ";
 
-	while (!(std::cin >> choice)) {
-		std::cout << "Invalid input. Please enter an integer: ";
-		std::cin.clear();               // Clear error flags
-		std::cin.ignore(10000, '\n');   // Discard input buffer
-	}
+	invalidInput(choice);
 }
 
 
@@ -36,8 +42,7 @@ inline void chooseOperation(int& choice)
 	std::cout << "Choose 13 to pop value from stack." << std::endl;
 	std::cout << "Choose 14 to save stack machine to txt file." << std::endl;
 	std::cout << "Choose 15 to exit." << std::endl;
-	std::cout << "I choose: ";
-	std::cin >> choice;
+	std::cout << "I choose: ";	
 }
 
 
@@ -59,6 +64,7 @@ inline void operateOnStackMachine(StackMachine<T>& stackMachine)
 	while (choice != 15)
 	{
 		chooseOperation(choice);
+		//invalidInput(choice);
 
 		switch (choice)
 		{
