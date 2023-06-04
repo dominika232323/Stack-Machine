@@ -2,58 +2,61 @@
 #include "../StackMachineLib/StackMachine.cpp"
 
 
-int main()
+void createStackMachineChoice(int& choice)
 {
-	/*std::cout << "Welcome to stack machine!" << std::endl;
 	std::cout << "Choose 1 to read stack machine from file." << std::endl;
 	std::cout << "Choose 2 to start a new stack machine." << std::endl;
 	std::cout << "Choose 3 to exit." << std::endl;
 	std::cout << "I choose: ";
 
+	std::cin >> choice;
+}
+
+
+int main()
+{
+	std::cout << "Welcome to stack machine!" << std::endl;
+	
 	int choice;
-	std::cin >> choice;*/
+	createStackMachineChoice(choice);
 
-	char a = 'a', b = 'f';
-	std::cout << a + b << std::endl;
-	std::cout << a - b << std::endl;
-	std::cout << a * b << std::endl;
-	std::cout << a / b << std::endl;
-	std::cout << (a & b) << std::endl;
-	std::cout << (a | b) << std::endl;
-	std::cout << (a ^ b) << std::endl;
-	std::cout << ~a << std::endl;
+	StackMachine<double> stackMachine;
+	std::string filename;
+	bool correctChoice = false;
 
-	/*switch (choice)
+	while (correctChoice == false)
 	{
-	case 1:
-		std::cout << "Give path to file with your stack: ";
-
-		std::string filename;
-		std::cin >> filename;
-
-		StackMachine<int> stackMachine(filename);
-		break;
-
-	case 2:
-		std::cout << "Choose 1 to operate on ints." << std::endl;
-		std::cout << "Choose 2 to operate on doubles." << std::endl;
-
-		int choice2;
-		std::cin >> choice2;
-
-		switch (choice2)
+		switch (choice)
 		{
 		case 1:
-			StackMachine<int> stackMachine;
+		{
+			std::cout << "Give path to file with your stack: ";
+			std::cin >> filename;
+			correctChoice = true;
 			break;
+		}
 
 		case 2:
-			StackMachine<double> stackMachine;
+		{
+			correctChoice = true;
 			break;
+		}
+
+		case 3:
+		{
+			std::cout << "Goodbye!" << std::endl;
+			correctChoice = true;
+			return 0;
+		}
 
 		default:
-
+		{
+			std::cout << "Incorrect choice! Choose again." << std::endl;
+			createStackMachineChoice(choice);
+			break;
 		}
-	}*/
+		}
+	}
 
+	return 0;
 }
