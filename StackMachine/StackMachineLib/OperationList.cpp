@@ -29,7 +29,7 @@ public:
 
     ~OperationList()
     {
-        while (operations.empty() == false)
+        while (!operations.empty())
         {
             Operation* toRemove = operations.back();
             operations.pop_back();
@@ -37,18 +37,19 @@ public:
         }
     }
 
-    /*void printOperations() 
-    {
-        for (int i = 0; i < operations.size(); i++) 
-        {
-            cout << i + 1 << ". " << operations[i]->getName() << endl;
-            (*operations[i]).getName();
-        }
-    }*/
-
-    /*void executeOperation(int index, stack<int>& s) 
+    void executeOperation(int index, Stack<T>& s) 
     {
         operations[index]->execute(s);
-    }*/
+    }
+
+    friend std::ostream& operator<<(std::ostream& os, const StackMachine<T>& stackMachine)
+    {
+        for (int i = 0; i < operations.size(); i++)
+        {
+            os << i + 1 << ". " << operations[i]->getName() << "\n";
+        }
+        
+        return os;
+    }
 };
 
