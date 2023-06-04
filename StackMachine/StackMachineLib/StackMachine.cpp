@@ -40,7 +40,11 @@ public:
 	void push(T value);
 	void pop();			// lub T pop();
 
-	friend std::ostream& operator<<(std::ostream& os, const StackMachine<T>& stackMachine);
+	friend std::ostream& operator<<(std::ostream& os, const StackMachine<T>& stackMachine)
+	{
+		os << "aaa";
+		return os;
+	}
 };
 
 template<typename T>
@@ -126,10 +130,4 @@ void StackMachine<T>::push(T value)
 template<typename T>
 void StackMachine<T>::pop()
 {
-}
-
-template<typename T>
-std::ostream& operator<<(std::ostream& os, const StackMachine<T>& stackMachine)
-{
-	return os;
 }
