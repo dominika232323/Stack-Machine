@@ -15,13 +15,13 @@ namespace OperationListUnitTest
 			std::ostringstream outputStringStream;
 			outputStringStream << op;
 			std::string expected =
-				"1. addition"
-				"2. subtraction"
-				"3. multiplication"
-				"4. division"
-				"5. bitwise xor"
-				"6. bitwise not"
-				"7. swap";
+				"1. addition\n"
+				"2. subtraction\n"
+				"3. multiplication\n"
+				"4. division\n"
+				"5. bitwise xor\n"
+				"6. bitwise not\n"
+				"7. swap\n";
 			Assert::AreEqual(expected, outputStringStream.str());
 		}
 		TEST_METHOD(operatorIndex)

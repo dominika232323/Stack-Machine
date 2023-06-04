@@ -23,10 +23,4 @@ protected:
 public:
 	virtual void execute(Stack<T>& s) = 0;
 	virtual std::string getName() = 0;
-
-	friend std::ostream& operator<<(std::ostream& os, const Operation<T>& operation)
-	{
-		os << operation.getName();
-		return os;
-	}
 };

@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "Stack.cpp"
 #include "OperationAddition.cpp"
 #include "OperationSubtraction.cpp"
@@ -22,6 +23,17 @@ private:
 
 public:
     OperationList()
+    {
+        operations.push_back(new OperationAddition<T>());
+        operations.push_back(new OperationSubtraction<T>());
+        operations.push_back(new OperationMultiplication<T>());
+        operations.push_back(new OperationDivision<T>());
+        operations.push_back(new OperationXor<T>());
+        operations.push_back(new OperationNot<T>());
+        operations.push_back(new OperationSwap<T>());
+    }
+
+    OperationList(const OperationList& list)
     {
         operations.push_back(new OperationAddition<T>());
         operations.push_back(new OperationSubtraction<T>());
@@ -56,10 +68,7 @@ public:
     {
         for (int i = 0; i < opList.size(); i++)
         {
-            /*os << i + 1;
-            os << ". ";*/
-            os << opList.getElementName(opList[i]);
-            //os << '\n';
+            os << std::to_string(i + 1) << std::string(". ") << opList.getElementName(opList[i]) << "\n";
         }
 
         return os;
