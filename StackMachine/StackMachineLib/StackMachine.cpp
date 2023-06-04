@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "Stack.cpp"
 #include "OperationAddition.cpp"
 #include "OperationSubtraction.cpp"
@@ -38,6 +39,8 @@ public:
 
 	void push(T value);
 	void pop();			// lub T pop();
+
+	friend std::ostream& operator<<(std::ostream& os, const StackMachine<T>& stackMachine);
 };
 
 template<typename T>
@@ -123,4 +126,10 @@ void StackMachine<T>::push(T value)
 template<typename T>
 void StackMachine<T>::pop()
 {
+}
+
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const StackMachine<T>& stackMachine)
+{
+	return os;
 }
