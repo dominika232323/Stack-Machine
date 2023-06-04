@@ -15,6 +15,11 @@ class OperationList
 private:
     std::vector<Operation<T>*> operations;
 
+    std::string getElementName(Operation<T>* op)
+    {
+        return op->getName();
+    }
+
 public:
     OperationList()
     {
@@ -31,25 +36,32 @@ public:
     {
         while (!operations.empty())
         {
-            Operation* toRemove = operations.back();
+            Operation<T>* toRemove = operations.back();
             operations.pop_back();
             delete toRemove;
         }
     }
 
-    Operation* operator[](int index)
+    int size()
+    {
+        return operations.size();
+    }
+
+    Operation<T>* operator[](int index)
     {
         return operations[index];
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const StackMachine<T>& stackMachine)
+    friend std::ostream& operator<<(std::ostream& os, OperationList<T> opList)
     {
-        for (int i = 0; i < operations.size(); i++)
+        for (int i = 0; i < opList.size(); i++)
         {
-            os << i + 1 << ". " << operations[i]->getName() << "\n";
+            /*os << i + 1;
+            os << ". ";*/
+            os << opList.getElementName(opList[i]);
+            //os << '\n';
         }
-        
+
         return os;
     }
 };
-

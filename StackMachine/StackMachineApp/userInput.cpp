@@ -48,15 +48,15 @@ inline void chooseOperation(int& choice)
 	std::cout << "I choose: ";
 	std::cin >> input;
 
-	try {
-		choice = std::stoi(input);
-	}
-	catch (const std::invalid_argument& e) {
-		choice = -1; // Set an invalid choice
-	}
-	catch (const std::out_of_range& e) {
-		choice = -1; // Set an invalid choice
-	}
+	//try {
+	//	choice = std::stoi(input);
+	//}
+	//catch (const std::invalid_argument& e) {
+	//	choice = -1; // Set an invalid choice
+	//}
+	//catch (const std::out_of_range& e) {
+	//	choice = -1; // Set an invalid choice
+	//}
 }
 
 
