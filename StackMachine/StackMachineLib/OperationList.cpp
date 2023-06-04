@@ -37,9 +37,9 @@ public:
         }
     }
 
-    void executeOperation(int index, Stack<T>& s) 
+    Operation* operator[](int index)
     {
-        operations[index]->execute(s);
+        return operations[index];
     }
 
     friend std::ostream& operator<<(std::ostream& os, const StackMachine<T>& stackMachine)
