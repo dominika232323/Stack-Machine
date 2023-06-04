@@ -146,6 +146,7 @@
     <ClCompile Include="OperationList.cpp" />
     <ClCompile Include="OperationMultiplication.cpp" />
     <ClCompile Include="OperationNot.cpp" />
+    <ClCompile Include="OperationOr.cpp" />
     <ClCompile Include="OperationSubtraction.cpp" />
     <ClCompile Include="OperationSwap.cpp" />
     <ClCompile Include="OperationXor.cpp" />
