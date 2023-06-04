@@ -14,8 +14,7 @@ void createStackMachineChoice(int& choice)
 }
 
 
-template<typename T>
-void operateOnStackMachine(StackMachine<T>& stackMachine)
+void chooseOperation(int& choice)
 {
 	std::cout << "Choose 1 to execute addition." << std::endl;
 	std::cout << "Choose 2 to execute subtraction." << std::endl;
@@ -28,7 +27,85 @@ void operateOnStackMachine(StackMachine<T>& stackMachine)
 	std::cout << "Choose 9 to execute swap." << std::endl;
 	std::cout << "Choose 10 to execute duplicate." << std::endl;
 	std::cout << "Choose 11 to execute operation from txt file." << std::endl;
-	std::cout << "Choose 12 to exit." << std::endl;
+	std::cout << "Choose 12 to save stack machine to txt file." << std::endl;
+	std::cout << "Choose 13 to exit." << std::endl;
+	std::cout << "I choose: ";
+	std::cin >> choice;
+}
+
+template<typename T>
+void operateOnStackMachine(StackMachine<T>& stackMachine)
+{
+	int choice = 0;
+
+	while (choice != 13)
+	{
+		chooseOperation(choice);
+
+		switch (choice)
+		{
+		case 1:
+			stackMachine.exectueAddition();
+			break;
+
+		case 2:
+			stackMachine.exectueSubtraction();
+			break;
+
+		case 3:
+			stackMachine.exectueMultiplication();
+			break;
+
+		case 4:
+			stackMachine.exectueDivision();
+			break;
+
+		case 5:
+			stackMachine.exectueAnd();
+			break;
+
+		case 6:
+			stackMachine.exectueOr();
+			break;
+
+		case 7:
+			stackMachine.exectueXor();
+			break;
+
+		case 8:
+			stackMachine.exectueNot();
+			break;
+
+		case 9:
+			stackMachine.exectueDuplicate();
+			break;
+
+		case 10:
+			stackMachine.exectueDuplicate();
+			break;
+
+		case 11:
+			std::cout << "Give path to file with your stack: ";
+			
+			std::string filename;
+			std::cin >> filename;
+			
+			stackMachine.executeOperationsFromFile(filename);
+			break;
+
+		case 12:
+			std::cout << "Give path to file where you want to save your stack: ";
+
+			std::string filename;
+			std::cin >> filename;
+
+			stackMachine.saveToFile(filename);
+			break;
+
+		default:
+			std::cout << "Incorrect operation!" << std::endl;
+		}
+	}
 }
 
 
