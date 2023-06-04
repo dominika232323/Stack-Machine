@@ -16,4 +16,9 @@ public:
 			s.push(b);
 		}
 	}
+
+	std::string getName()
+	{
+		return "swap";
+	}
 };

@@ -8,7 +8,11 @@ namespace OperationSwapUnitTest
 	TEST_CLASS(OperationSwapUnitTest)
 	{
 	public:
-
+		TEST_METHOD(getName)
+		{
+			OperationSwap<int> swap;
+			Assert::AreEqual(std::string("swap"), swap.getName());
+		}
 		TEST_METHOD(execute_ZeroElementsOnStack)
 		{
 			OperationSwap<int> swap;

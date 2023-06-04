@@ -20,4 +20,9 @@ public:
 			s.push(-1 * a);
 		}
 	}
+
+	std::string getName()
+	{
+		return "subtraction";
+	}
 };

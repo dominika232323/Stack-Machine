@@ -8,6 +8,11 @@ namespace OperationAdditionUnitTest
 	TEST_CLASS(OperationAdditionUnitTest)
 	{
 	public:
+		TEST_METHOD(getName)
+		{
+			OperationAddition<int> add;
+			Assert::AreEqual(std::string("addition"), add.getName());
+		}
 		TEST_METHOD(execute_ZeroElementsOnStack)
 		{
 			OperationAddition<int> add;

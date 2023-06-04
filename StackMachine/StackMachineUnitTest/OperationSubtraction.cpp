@@ -8,7 +8,11 @@ namespace OperationSubtractionUnitTest
 	TEST_CLASS(OperationSubtractionUnitTest)
 	{
 	public:
-
+		TEST_METHOD(getName)
+		{
+			OperationSubtraction<int> sub;
+			Assert::AreEqual(std::string("subtraction"), sub.getName());
+		}
 		TEST_METHOD(execute_ZeroElementsOnStack)
 		{
 			OperationSubtraction<int> sub;

@@ -14,4 +14,9 @@ public:
 			s.push(~a);
 		}
 	}
+
+	std::string getName()
+	{
+		return "bitwise not";
+	}
 };

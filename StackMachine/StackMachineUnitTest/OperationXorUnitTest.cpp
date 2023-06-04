@@ -8,7 +8,11 @@ namespace OperationXorUnitTest
 	TEST_CLASS(OperationXorUnitTest)
 	{
 	public:
-
+		TEST_METHOD(getName)
+		{
+			OperationXor<int> x;
+			Assert::AreEqual(std::string("bitwise xor"), x.getName());
+		}
 		TEST_METHOD(execute_ZeroElementsOnStack)
 		{
 			OperationXor<int> xor;

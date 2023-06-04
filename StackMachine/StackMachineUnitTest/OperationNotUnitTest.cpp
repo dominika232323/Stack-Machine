@@ -8,7 +8,11 @@ namespace OperationNotUnitTest
 	TEST_CLASS(OperationNotUnitTest)
 	{
 	public:
-
+		TEST_METHOD(getName)
+		{
+			OperationNot<int> n;
+			Assert::AreEqual(std::string("bitwise not"), n.getName());
+		}
 		TEST_METHOD(execute_ZeroElementsOnStack)
 		{
 			OperationNot<int> not;

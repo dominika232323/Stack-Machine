@@ -15,4 +15,9 @@ public:
 			s.push(a + b);
 		}
 	}
+
+	std::string getName()
+	{
+		return "addition";
+	}
 };

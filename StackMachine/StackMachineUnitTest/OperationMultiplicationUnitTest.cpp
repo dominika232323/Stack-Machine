@@ -9,8 +9,10 @@ namespace OperationMultiplicationUnitTest
 	{
 	public:
 
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(getName)
 		{
+			OperationMultiplication<int> mul;
+			Assert::AreEqual(std::string("multiplication"), mul.getName());
 		}
 	};
 }

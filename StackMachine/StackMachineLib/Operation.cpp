@@ -22,5 +22,6 @@ protected:
 
 public:
 	virtual void execute(Stack<T>& s) = 0;
+	virtual std::string getName() = 0;
 };
 
