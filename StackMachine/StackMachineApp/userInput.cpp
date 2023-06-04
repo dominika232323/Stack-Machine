@@ -43,12 +43,19 @@ inline void chooseOperation(int& choice)
 	std::cout << "Choose 13 to pop value from stack." << std::endl;
 	std::cout << "Choose 14 to save stack machine to txt file." << std::endl;
 	std::cout << "Choose 15 to exit." << std::endl;
-	std::cout << "I choose: ";	
+	
+	std::string input;
+	std::cout << "I choose: ";
+	std::cin >> input;
 
-	while (!(std::cin >> choice))
-	{
-		std::cout << "Invalid input. Please enter an integer: ";
-		invalidInput();
+	try {
+		choice = std::stoi(input);
+	}
+	catch (const std::invalid_argument& e) {
+		choice = -1; // Set an invalid choice
+	}
+	catch (const std::out_of_range& e) {
+		choice = -1; // Set an invalid choice
 	}
 }
 
