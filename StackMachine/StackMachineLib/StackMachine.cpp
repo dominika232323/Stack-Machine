@@ -40,3 +40,87 @@ public:
 	void pop();			// lub T pop();
 };
 
+template<typename T>
+StackMachine<T>::StackMachine()
+{
+}
+
+template<typename T>
+StackMachine<T>::StackMachine(std::string filename)
+{
+}
+
+template<typename T>
+StackMachine<T>::~StackMachine()
+{
+}
+
+template<typename T>
+void StackMachine<T>::executeOperationsFromFile(std::string filename)
+{
+}
+
+template<typename T>
+void StackMachine<T>::saveToFile(std::string filename)
+{
+}
+
+template<typename T>
+void StackMachine<T>::exectueAddition()
+{
+}
+
+template<typename T>
+void StackMachine<T>::exectueSubtraction()
+{
+}
+
+template<typename T>
+void StackMachine<T>::exectueMultiplication()
+{
+}
+
+template<typename T>
+void StackMachine<T>::exectueDivision()
+{
+}
+
+template<typename T>
+void StackMachine<T>::exectueAnd()
+{
+}
+
+template<typename T>
+void StackMachine<T>::exectueOr()
+{
+}
+
+template<typename T>
+void StackMachine<T>::exectueXor()
+{
+}
+
+template<typename T>
+void StackMachine<T>::exectueNot()
+{
+}
+
+template<typename T>
+void StackMachine<T>::exectueSwap()
+{
+}
+
+template<typename T>
+void StackMachine<T>::exectueDuplicate()
+{
+}
+
+template<typename T>
+void StackMachine<T>::push(T value)
+{
+}
+
+template<typename T>
+void StackMachine<T>::pop()
+{
+}
