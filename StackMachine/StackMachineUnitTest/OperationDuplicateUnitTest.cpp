@@ -1,51 +1,51 @@
 #include "CppUnitTest.h"
-#include "../StackMachineLib/OperationSwap.cpp"
+#include "../StackMachineLib/OperationDuplicate.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace OperationSwapUnitTest
+namespace OperationDuplicateUnitTest
 {
-	TEST_CLASS(OperationSwapUnitTest)
+	TEST_CLASS(OperationDuplicateUnitTest)
 	{
 	public:
 		TEST_METHOD(getName)
 		{
-			OperationSwap<int> swap;
-			Assert::AreEqual(std::string("swap"), swap.getName());
+			OperationDuplicate<int> x;
+			Assert::AreEqual(std::string("duplicate"), x.getName());
 		}
 		TEST_METHOD(execute_ZeroElementsOnStack)
 		{
-			OperationSwap<int> swap;
+			OperationDuplicate<int> x;
 			Stack<int> s;
-			swap.execute(s);
+			x.execute(s);
 
 			std::vector<int> expectedStack = { };
 			Assert::IsTrue(expectedStack == s.getStack());
 		}
 		TEST_METHOD(execute_OneElementOnStack)
 		{
-			OperationSwap<int> swap;
+			OperationDuplicate<int> x;
 			Stack<int> s;
 			s.push(4);
-			swap.execute(s);
+			x.execute(s);
 
-			std::vector<int> expectedStack = { 4 };
+			std::vector<int> expectedStack = { 4, 4 };
 			Assert::IsTrue(expectedStack == s.getStack());
 		}
 		TEST_METHOD(execute_TwoElementsOnStack)
 		{
-			OperationSwap<int> swap;
+			OperationDuplicate<int> x;
 			Stack<int> s;
+			s.push(5);
 			s.push(4);
-			s.push(-9);
-			swap.execute(s);
+			x.execute(s);
 
-			std::vector<int> expectedStack = { -9, 4 };
+			std::vector<int> expectedStack = { 5, 4, 4 };
 			Assert::IsTrue(expectedStack == s.getStack());
 		}
-		TEST_METHOD(execute_MoreThanTwoElementsOnStack)
+		TEST_METHOD(execute_MDuplicateeThanTwoElementsOnStack)
 		{
-			OperationSwap<int> swap;
+			OperationDuplicate<int> x;
 			Stack<int> s;
 			s.push(5);
 			s.push(4);
@@ -53,9 +53,9 @@ namespace OperationSwapUnitTest
 			s.push(56);
 			s.push(3);
 			s.push(16);
-			swap.execute(s);
+			x.execute(s);
 
-			std::vector<int> expectedStack = { 5, 4, 12, 56, 16, 3 };
+			std::vector<int> expectedStack = { 5, 4, 12, 56, 3, 16, 16 };
 			Assert::IsTrue(expectedStack == s.getStack());
 		}
 	};

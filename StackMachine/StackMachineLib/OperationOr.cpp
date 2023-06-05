@@ -3,7 +3,7 @@
 
 
 template<typename T>
-class OperationSwap : public Operation<T>
+class OperationOr : public Operation<T>
 {
 public:
 	using Operation<T>::canTopAndPopTwice;
@@ -11,17 +11,23 @@ public:
 
 	void execute(Stack<T>& s)
 	{
-		if (canTopAndPopTwice(s))
+		if (s.isEmpty())
+			return;
+
+		if constexpr (std::is_integral_v<T>)
 		{
 			T a = topAndPopOnStack(s);
-			T b = topAndPopOnStack(s);
-			s.push(a);
-			s.push(b);
+			T b = 0;
+
+			if (!s.isEmpty())
+				b = topAndPopOnStack(s);
+
+			s.push(a | b);
 		}
 	}
 
 	std::string getName()
 	{
-		return "swap";
+		return "bitwise or";
 	}
 };

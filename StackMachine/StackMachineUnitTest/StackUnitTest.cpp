@@ -24,6 +24,33 @@ namespace StackUnitTest
 			Assert::AreEqual(size_t(1), s.size());
 			Assert::IsFalse(s.isEmpty());
 		}
+		TEST_METHOD(constructorVector)
+		{
+			std::vector<int> v = { 6, 5, 4, 3, 2, 1 };
+			Stack<int> s(v);
+			Assert::IsTrue(v == s.getStack());
+			Assert::AreEqual(size_t(6), s.size());
+			Assert::IsFalse(s.isEmpty());
+		}
+		TEST_METHOD(clear)
+		{
+			std::vector<int> v = { 6, 5, 4, 3, 2, 1 };
+			Stack<int> s(v);
+			s.clear();
+			std::vector<int> expected = {};
+			Assert::IsTrue(expected == s.getStack());
+			Assert::AreEqual(size_t(0), s.size());
+			Assert::IsTrue(s.isEmpty());
+		}
+		TEST_METHOD(clear_empty)
+		{
+			Stack<int> s;
+			s.clear();
+			std::vector<int> expected = {};
+			Assert::IsTrue(expected == s.getStack());
+			Assert::AreEqual(size_t(0), s.size());
+			Assert::IsTrue(s.isEmpty());
+		}
 		TEST_METHOD(push_toEmpty)
 		{
 			Stack<int> s;
@@ -89,6 +116,32 @@ namespace StackUnitTest
 			Assert::AreEqual(size_t(5), s.size());
 			Assert::IsFalse(s.isEmpty());
 			Assert::AreEqual(25, a);
+		}
+		TEST_METHOD(operatorEqual)
+		{
+			Stack<int> s1({ 1, 2, 3, 4, 54 });
+			Stack<int> s2({ 9, 2, 54, 231, 1 });
+			s1 = s2;
+			std::vector<int> expected = { 9, 2, 54, 231, 1 };
+			Assert::IsTrue(expected == s1.getStack());
+			Assert::AreEqual(size_t(5), s1.size());
+			Assert::IsFalse(s1.isEmpty());
+		}
+		TEST_METHOD(operatorStream)
+		{
+			Stack<int> s;
+			s.push(12);
+			s.push(16);
+			s.push(14);
+			s.push(25);
+			std::ostringstream outputStringStream;
+			outputStringStream << s;
+			std::string expected =
+				"25\n"
+				"14\n"
+				"16\n"
+				"12\n";
+			Assert::AreEqual(expected, outputStringStream.str());
 		}
 	};
 }

@@ -157,9 +157,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="OperationAdditionUnitTest.cpp" />
+    <ClCompile Include="OperationAndUnitTest.cpp" />
     <ClCompile Include="OperationDivisionUnitTest.cpp" />
+    <ClCompile Include="OperationDuplicateUnitTest.cpp" />
     <ClCompile Include="OperationMultiplicationUnitTest.cpp" />
     <ClCompile Include="OperationNotUnitTest.cpp" />
+    <ClCompile Include="OperationOrUnitTest.cpp" />
+    <ClCompile Include="OperationsListUnitTest.cpp" />
     <ClCompile Include="OperationSubtraction.cpp" />
     <ClCompile Include="OperationSwapUnitTest.cpp" />
     <ClCompile Include="OperationXorUnitTest.cpp" />

@@ -1,51 +1,51 @@
 #include "CppUnitTest.h"
-#include "../StackMachineLib/OperationAddition.cpp"
+#include "../StackMachineLib/OperationAnd.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace OperationAdditionUnitTest
+namespace OperationAndUnitTest
 {
-	TEST_CLASS(OperationAdditionUnitTest)
+	TEST_CLASS(OperationAndUnitTest)
 	{
 	public:
 		TEST_METHOD(getName)
 		{
-			OperationAddition<int> add;
-			Assert::AreEqual(std::string("addition"), add.getName());
+			OperationAnd<int> x;
+			Assert::AreEqual(std::string("bitwise and"), x.getName());
 		}
 		TEST_METHOD(execute_ZeroElementsOnStack)
 		{
-			OperationAddition<int> add;
+			OperationAnd<int> x;
 			Stack<int> s;
-			add.execute(s);
+			x.execute(s);
 
 			std::vector<int> expectedStack = { };
 			Assert::IsTrue(expectedStack == s.getStack());
 		}
 		TEST_METHOD(execute_OneElementOnStack)
 		{
-			OperationAddition<int> add;
+			OperationAnd<int> x;
 			Stack<int> s;
 			s.push(4);
-			add.execute(s);
+			x.execute(s);
 
-			std::vector<int> expectedStack = { 4 };
+			std::vector<int> expectedStack = { 0 };
 			Assert::IsTrue(expectedStack == s.getStack());
 		}
 		TEST_METHOD(execute_TwoElementsOnStack)
 		{
-			OperationAddition<int> add;
+			OperationAnd<int> x;
 			Stack<int> s;
 			s.push(5);
 			s.push(4);
-			add.execute(s);
+			x.execute(s);
 
-			std::vector<int> expectedStack = { 9 };
+			std::vector<int> expectedStack = { 4 };
 			Assert::IsTrue(expectedStack == s.getStack());
 		}
 		TEST_METHOD(execute_MoreThanTwoElementsOnStack)
 		{
-			OperationAddition<int> add;
+			OperationAnd<int> x;
 			Stack<int> s;
 			s.push(5);
 			s.push(4);
@@ -53,20 +53,20 @@ namespace OperationAdditionUnitTest
 			s.push(56);
 			s.push(3);
 			s.push(16);
-			add.execute(s);
+			x.execute(s);
 
-			std::vector<int> expectedStack = { 5, 4, 12, 56, 19 };
+			std::vector<int> expectedStack = { 5, 4, 12, 56, 0 };
 			Assert::IsTrue(expectedStack == s.getStack());
 		}
 		TEST_METHOD(execute_TwoElementsOnStack_string)
 		{
-			OperationAddition<std::string> x;
+			OperationAnd<std::string> x;
 			Stack<std::string> s;
 			s.push("ala");
 			s.push("kot");
 			x.execute(s);
 
-			std::vector<std::string> expectedStack = { "alakot" };
+			std::vector<std::string> expectedStack = { "ala", "kot" };
 			Assert::IsTrue(expectedStack == s.getStack());
 		}
 	};

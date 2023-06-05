@@ -12,17 +12,30 @@ private:
 public:
 	Stack();
 	Stack(T value);
-	~Stack();
-
+	Stack(std::vector<T> values);
+	
 	std::vector<T> getStack();
 	size_t size();
 	
 	bool isEmpty();
+	void clear();
 
 	void push(T value);
 	void pop();
 
 	T top();
+
+	void operator=(Stack<T> other);
+
+	friend std::ostream& operator<<(std::ostream& os, Stack<T>& stack)
+	{
+		std::vector<T> stackVector = stack.getStack();
+
+		for (int i = stackVector.size() - 1; i >= 0; i--)
+			os << stackVector[i] << "\n";
+
+		return os;
+	}
 };
 
 template<typename T>
@@ -37,8 +50,9 @@ Stack<T>::Stack(T value)
 }
 
 template<typename T>
-Stack<T>::~Stack()
+Stack<T>::Stack(std::vector<T> values)
 {
+	stack = values;
 }
 
 template<typename T>
@@ -57,6 +71,12 @@ template<typename T>
 bool Stack<T>::isEmpty()
 {
 	return size() == 0;
+}
+
+template<typename T>
+void Stack<T>::clear()
+{
+	stack.clear();
 }
 
 template<typename T>
@@ -79,4 +99,10 @@ T Stack<T>::top()
 		throw std::out_of_range("Empty stack!");
 
 	return stack.back();
+}
+
+template<typename T>
+void Stack<T>::operator=(Stack<T> other)
+{
+	this->stack = other.stack;
 }

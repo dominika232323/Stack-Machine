@@ -1,9 +1,10 @@
 #pragma once
+#include <iostream>
+#include <fstream>
+#include <string>
 #include "Stack.cpp"
-#include "OperationAddition.cpp"
-#include "OperationSubtraction.cpp"
-#include "OperationMultiplication.cpp"
-#include "OperationDivision.cpp"
+#include "OperationList.cpp"
+#include "ReadFromFile.cpp"
 
 
 template<typename T>
@@ -13,19 +14,65 @@ private:
 	Stack<T> stack;
 
 public:
-	StackMachine();
-	//StackMachine(/*filename*/);					// czyta zapisany stos z pliku
-	~StackMachine();
+	StackMachine()
+	{
+	}
 
-	void executeOperations(/*filename*/);		// wykonuje operacje z pliku
-	void saveToFile(/*filename*/);				// zapisuje stos do pliku
+	StackMachine(std::string filename)
+	{
+		stack = ReadFromFile<T>::readStackFromFile(filename);
+	}
 
-	void addition();					// dzia³ania na stosie jakby ktoœ chcia³ u¿ywaæ StackMachine bez pliku z operacjami
-	void subtraction();
-	void multiplication();
-	void division();
+	void saveToFile(std::string filename)
+	{
+		std::ofstream myfile(filename);
 
-	void push(T value);
-	void pop();			// lub T pop();
+		if (myfile.is_open())
+		{
+			myfile << stack;
+			myfile.close();
+		}
+		else
+		{
+			throw std::exception("Cannot open file.");
+		}
+	}
+
+	void exectueOperation(Operation<T>* operation)
+	{
+		operation->execute(stack);
+	}
+
+	void push(T value)
+	{
+		stack.push(value);
+	}
+
+	void pop()
+	{
+		stack.pop();
+	}
+
+	void clear()
+	{
+		stack.clear();
+	}
+
+	friend std::ostream& operator<<(std::ostream& os, StackMachine<T>& stackMachine)
+	{
+		if (stackMachine.stack.isEmpty())
+		{
+			os << "Empty stack.";
+			return os;
+		}
+
+		std::vector<T> stackVector = stackMachine.stack.getStack();
+
+		for (int i = 0; i < stackVector.size(); i++)
+			os << stackVector[i] << " ";
+
+		return os;
+	}
 };
+
 
