@@ -5,13 +5,6 @@
 #include "../StackMachineLib/OperationList.cpp"
 
 
-//void invalidInput()
-//{
-//	std::cin.clear();
-//	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-//}
-
-
 inline void chooseStackMachineCreation(int& choice)
 {
 	std::cout << "Choose 1 to read stack machine from file." << std::endl;
@@ -22,29 +15,24 @@ inline void chooseStackMachineCreation(int& choice)
 	while (!(std::cin >> choice))
 	{
 		std::cout << "Invalid input. Please enter an integer: ";
-		//invalidInput();
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 }
 
-
-//void printAdditionalOperations(int opListSize, int offset, std::string text)
-//{
-//	std::cout << opListSize + offset << ". " << text << std::endl;
-//}
 
 template<typename T>
 inline void chooseOperation(int& choice, OperationList<T>& opList)
 {
 	std::cout << opList;
-	/*printAdditionalOperations(opList.size(), 1, "push");
-	printAdditionalOperations(opList.size(), 2, "pop");
-	printAdditionalOperations(opList.size(), 3, "execute operations from file");
-	printAdditionalOperations(opList.size(), 4, "save to file");
-	printAdditionalOperations(opList.size(), 5, "exit");*/
+	std::cout << opList.size() + 1 << ". " << "push" << std::endl;
+	std::cout << opList.size() + 2 << ". " << "pop" << std::endl;
+	std::cout << opList.size() + 3 << ". " << "execute operations from file" << std::endl;
+	std::cout << opList.size() + 4 << ". " << "save to file" << std::endl;
+	std::cout << opList.size() + 5 << ". " << "exit" << std::endl;
 	
-	std::string input;
 	std::cout << "I choose: ";
-	std::cin >> input;
+	std::cin >> choice;
 }
 
 
