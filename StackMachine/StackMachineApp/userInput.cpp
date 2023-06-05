@@ -10,13 +10,7 @@ inline void chooseStackMachineCreation(int& choice)
 	std::cout << "Choose 2 to start a new stack machine." << std::endl;
 	std::cout << "Choose 3 to exit." << std::endl;
 	std::cout << "I choose: ";
-
-	while (!(std::cin >> choice))
-	{
-		std::cout << "Invalid input. Please enter an integer: ";
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	}
+	std::cin >> choice;
 }
 
 
@@ -38,8 +32,10 @@ void chooseOperation(int& choice, OperationList<T>& opList)
 template<typename T>
 void printStack(StackMachine<T>& stackMachine)
 {
+	std::cout << std::endl;
 	std::cout << "Your stack: " << std::endl;
 	std::cout << stackMachine << std::endl;
+	std::cout << std::endl;
 }
 
 

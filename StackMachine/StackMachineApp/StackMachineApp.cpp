@@ -13,28 +13,29 @@ int main()
 	{
 		chooseStackMachineCreation(choice);
 
-		switch (choice)
+		if (choice == 1)
 		{
-		case 1:
 			std::cout << "Give path to file with your stack: ";
 			std::cin >> filename;
-			//stackMachine(filename);
-			break;
+		}
+		else if (choice == 2)
+		{
 
-		case 2:
-			break;
-
-		case 3:
+		}
+		else if (choice == 3)
+		{
 			std::cout << "Goodbye!" << std::endl;
 			return 0;
-
-		default:
+		}
+		else
+		{
 			std::cout << "Incorrect choice! Choose again." << std::endl;
+			std::cout << std::endl;
 			chooseStackMachineCreation(choice);
-			break;
 		}
 	}
 
+	std::cout << std::endl;
 	operateOnStackMachine(stackMachine);
 
 	return 0;
