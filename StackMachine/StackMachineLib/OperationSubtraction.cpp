@@ -11,16 +11,19 @@ public:
 
 	void execute(Stack<T>& s)
 	{
-		if (canTopAndPopTwice(s))
+		if constexpr (std::is_arithmetic_v<T>)
 		{
-			T a = topAndPopOnStack(s);
-			T b = topAndPopOnStack(s);
-			s.push(b - a);
-		}
-		else if (s.size() == 1)
-		{
-			T a = topAndPopOnStack(s);
-			s.push(-1 * a);
+			if (canTopAndPopTwice(s))
+			{
+				T a = topAndPopOnStack(s);
+				T b = topAndPopOnStack(s);
+				s.push(b - a);
+			}
+			else if (!s.isEmpty())
+			{
+				T a = topAndPopOnStack(s);
+				s.push(-1 * a);
+			}
 		}
 	}
 

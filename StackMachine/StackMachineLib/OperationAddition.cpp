@@ -15,7 +15,7 @@ public:
 		{
 			T a = topAndPopOnStack(s);
 			T b = topAndPopOnStack(s);
-			s.push(a + b);
+			s.push(b + a);
 		}
 	}
 
