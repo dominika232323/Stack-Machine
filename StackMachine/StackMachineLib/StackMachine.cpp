@@ -57,9 +57,9 @@ public:
 		stack.pop();
 	}
 
-	friend std::ostream& operator<<(std::ostream& os, const StackMachine<T>& stackMachine)
+	friend std::ostream& operator<<(std::ostream& os, StackMachine<T>& stackMachine)
 	{
-		std::vector<T> stackVector = stack.getStack();
+		std::vector<T> stackVector = stackMachine.stack.getStack();
 
 		for (int i = 0; i < stackVector.size(); i++)
 			os << stackVector[i] << " ";

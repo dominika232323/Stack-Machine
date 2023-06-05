@@ -5,11 +5,11 @@
 #include "../StackMachineLib/OperationList.cpp"
 
 
-void invalidInput()
-{
-	std::cin.clear();
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-}
+//void invalidInput()
+//{
+//	std::cin.clear();
+//	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//}
 
 
 inline void chooseStackMachineCreation(int& choice)
@@ -22,39 +22,29 @@ inline void chooseStackMachineCreation(int& choice)
 	while (!(std::cin >> choice))
 	{
 		std::cout << "Invalid input. Please enter an integer: ";
-		invalidInput();
+		//invalidInput();
 	}
 }
 
 
-void printAdditionalOperations(int opListSize, int offset, std::string text)
-{
-	std::cout << opListSize + offset << ". " << text << std::endl;
-}
+//void printAdditionalOperations(int opListSize, int offset, std::string text)
+//{
+//	std::cout << opListSize + offset << ". " << text << std::endl;
+//}
 
 template<typename T>
 inline void chooseOperation(int& choice, OperationList<T>& opList)
 {
 	std::cout << opList;
-	printAdditionalOperations(opList.size(), 1, "push");
+	/*printAdditionalOperations(opList.size(), 1, "push");
 	printAdditionalOperations(opList.size(), 2, "pop");
 	printAdditionalOperations(opList.size(), 3, "execute operations from file");
 	printAdditionalOperations(opList.size(), 4, "save to file");
-	printAdditionalOperations(opList.size(), 5, "exit");
+	printAdditionalOperations(opList.size(), 5, "exit");*/
 	
 	std::string input;
 	std::cout << "I choose: ";
 	std::cin >> input;
-
-	//try {
-	//	choice = std::stoi(input);
-	//}
-	//catch (const std::invalid_argument& e) {
-	//	choice = -1; // Set an invalid choice
-	//}
-	//catch (const std::out_of_range& e) {
-	//	choice = -1; // Set an invalid choice
-	//}
 }
 
 
@@ -81,52 +71,42 @@ inline void operateOnStackMachine(StackMachine<T>& stackMachine)
 		switch (choice)
 		{
 		case 1:
-			stackMachine.exectueAddition();
 			printStack(stackMachine);
 			break;
 
 		case 2:
-			stackMachine.exectueSubtraction();
 			printStack(stackMachine);
 			break;
 
 		case 3:
-			stackMachine.exectueMultiplication();
 			printStack(stackMachine);
 			break;
 
 		case 4:
-			stackMachine.exectueDivision();
 			printStack(stackMachine);
 			break;
 
 		case 5:
-			stackMachine.exectueAnd();
 			printStack(stackMachine);
 			break;
 
 		case 6:
-			stackMachine.exectueOr();
 			printStack(stackMachine);
 			break;
 
 		case 7:
-			stackMachine.exectueXor();
 			printStack(stackMachine);
 			break;
 
 		case 8:
-			stackMachine.exectueNot();
 			printStack(stackMachine);
 			break;
 
 		case 9:
-			stackMachine.exectueDuplicate();
 			printStack(stackMachine);
 			break;
 
 		case 10:
-			stackMachine.exectueDuplicate();
 			printStack(stackMachine);
 			break;
 

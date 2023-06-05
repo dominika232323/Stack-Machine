@@ -6,12 +6,15 @@ template<typename T>
 class OperationNot : public Operation<T>
 {
 public:
+	using Operation<T>::canTopAndPopTwice;
+	using Operation<T>::topAndPopOnStack;
+
 	void execute(Stack<T>& s)
 	{
 		if (!s.isEmpty())
 		{
 			T a = topAndPopOnStack(s);
-			s.push(~a);
+			//s.push(~a);
 		}
 	}
 

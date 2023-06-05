@@ -6,6 +6,9 @@ template<typename T>
 class OperationMultiplication : public Operation<T>
 {
 public:
+	using Operation<T>::canTopAndPopTwice;
+	using Operation<T>::topAndPopOnStack;
+
 	void execute(Stack<T>& s)
 	{
 		if (canTopAndPopTwice(s))
