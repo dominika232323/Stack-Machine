@@ -53,6 +53,11 @@ public:
 		stack.pop();
 	}
 
+	void clear()
+	{
+		stack.clear();
+	}
+
 	friend std::ostream& operator<<(std::ostream& os, StackMachine<T>& stackMachine)
 	{
 		if (stackMachine.stack.isEmpty())

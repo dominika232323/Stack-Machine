@@ -58,6 +58,16 @@ namespace StackMachineUnitTest
 			std::string expected = "2 21 23 20 22 24 77 81 27 4 10 31 18 16 55 ";
 			Assert::AreEqual(expected, outputStringStream.str());
 		}
+		TEST_METHOD(clear)
+		{
+			StackMachine<int> sm("/Users/domin/Desktop/studia/sem2_23L/PROI/23L-PROI-PROJ-1-Boguszewska-Dominika-Grabska-Joanna/saveExample.txt");
+			sm.clear();
+
+			std::ostringstream outputStringStream;
+			outputStringStream << sm;
+			std::string expected = "Empty stack.";
+			Assert::AreEqual(expected, outputStringStream.str());
+		}
 		TEST_METHOD(executeOperation_addition)
 		{
 			StackMachine<int> sm("/Users/domin/Desktop/studia/sem2_23L/PROI/23L-PROI-PROJ-1-Boguszewska-Dominika-Grabska-Joanna/saveExample.txt");

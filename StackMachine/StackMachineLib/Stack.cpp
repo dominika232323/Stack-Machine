@@ -18,6 +18,7 @@ public:
 	size_t size();
 	
 	bool isEmpty();
+	void clear();
 
 	void push(T value);
 	void pop();
@@ -70,6 +71,12 @@ template<typename T>
 bool Stack<T>::isEmpty()
 {
 	return size() == 0;
+}
+
+template<typename T>
+void Stack<T>::clear()
+{
+	stack.clear();
 }
 
 template<typename T>

@@ -27,7 +27,6 @@ inline void chooseOperation(int& choice, OperationList<T>& opList)
 	std::cout << opList;
 	std::cout << opList.size() + 1 << ". " << "push" << std::endl;
 	std::cout << opList.size() + 2 << ". " << "pop" << std::endl;
-	std::cout << opList.size() + 3 << ". " << "execute operations from file" << std::endl;
 	std::cout << opList.size() + 4 << ". " << "save to file" << std::endl;
 	std::cout << opList.size() + 5 << ". " << "exit" << std::endl;
 	
