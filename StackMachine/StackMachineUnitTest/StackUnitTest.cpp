@@ -98,6 +98,16 @@ namespace StackUnitTest
 			Assert::IsFalse(s.isEmpty());
 			Assert::AreEqual(25, a);
 		}
+		TEST_METHOD(operatorEqual)
+		{
+			Stack<int> s1({ 1, 2, 3, 4, 54 });
+			Stack<int> s2({ 9, 2, 54, 231, 1 });
+			s1 = s2;
+			std::vector<int> expected = { 9, 2, 54, 231, 1 };
+			Assert::IsTrue(expected == s1.getStack());
+			Assert::AreEqual(size_t(5), s1.size());
+			Assert::IsFalse(s1.isEmpty());
+		}
 		TEST_METHOD(operatorStream)
 		{
 			Stack<int> s;

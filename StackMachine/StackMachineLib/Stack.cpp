@@ -24,6 +24,8 @@ public:
 
 	T top();
 
+	void operator=(Stack<T> other);
+
 	friend std::ostream& operator<<(std::ostream& os, Stack<T>& stack)
 	{
 		std::vector<T> stackVector = stack.getStack();
@@ -90,4 +92,10 @@ T Stack<T>::top()
 		throw std::out_of_range("Empty stack!");
 
 	return stack.back();
+}
+
+template<typename T>
+void Stack<T>::operator=(Stack<T> other)
+{
+	this->stack = other.stack;
 }

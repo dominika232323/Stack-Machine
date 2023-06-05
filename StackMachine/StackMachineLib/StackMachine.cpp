@@ -4,6 +4,7 @@
 #include <string>
 #include "Stack.cpp"
 #include "OperationList.cpp"
+#include "ReadFromFile.cpp"
 
 
 template<typename T>
@@ -19,26 +20,7 @@ public:
 
 	StackMachine(std::string filename)
 	{
-		std::ifstream inputFile(filename);
-
-		if (inputFile.is_open()) 
-		{
-			std::vector<T> numbers;
-			T number;
-
-			while (inputFile >> number) 
-			{
-				numbers.push_back(number);
-			}
-
-			stack(numbers);
-
-			inputFile.close();
-		}
-		else 
-		{
-			throw std::exception("Cannot open file.");
-		}
+		//stack = ReadFromFile<T>::readStackFromFile(filename);
 	}
 
 	void executeOperationsFromFile(std::string filename)
