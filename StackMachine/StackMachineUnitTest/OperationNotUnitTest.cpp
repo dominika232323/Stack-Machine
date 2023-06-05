@@ -58,5 +58,16 @@ namespace OperationNotUnitTest
 			std::vector<int> expectedStack = { 5, 4, 12, 56, 3, -17 };
 			Assert::IsTrue(expectedStack == s.getStack());
 		}
+		TEST_METHOD(execute_TwoElementsOnStack_string)
+		{
+			OperationNot<std::string> x;
+			Stack<std::string> s;
+			s.push("ala");
+			s.push("kot");
+			x.execute(s);
+
+			std::vector<std::string> expectedStack = { "ala", "kot" };
+			Assert::IsTrue(expectedStack == s.getStack());
+		}
 	};
 }
