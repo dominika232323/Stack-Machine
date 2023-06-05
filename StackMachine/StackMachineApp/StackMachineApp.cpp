@@ -18,6 +18,7 @@ int main()
 		case 1:
 			std::cout << "Give path to file with your stack: ";
 			std::cin >> filename;
+			//stackMachine(filename);
 			break;
 
 		case 2:

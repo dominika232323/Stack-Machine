@@ -2,7 +2,6 @@
 #include <sstream>
 #include <string>
 #include "../StackMachineLib/StackMachine.cpp"
-#include "../StackMachineLib/OperationList.cpp"
 
 
 inline void chooseStackMachineCreation(int& choice)
@@ -22,11 +21,12 @@ inline void chooseStackMachineCreation(int& choice)
 
 
 template<typename T>
-inline void chooseOperation(int& choice, OperationList<T>& opList)
+void chooseOperation(int& choice, OperationList<T>& opList)
 {
 	std::cout << opList;
 	std::cout << opList.size() + 1 << ". " << "push" << std::endl;
 	std::cout << opList.size() + 2 << ". " << "pop" << std::endl;
+	std::cout << opList.size() + 3 << ". " << "clear" << std::endl;
 	std::cout << opList.size() + 4 << ". " << "save to file" << std::endl;
 	std::cout << opList.size() + 5 << ". " << "exit" << std::endl;
 	
@@ -44,60 +44,24 @@ void printStack(StackMachine<T>& stackMachine)
 
 
 template<typename T>
-inline void operateOnStackMachine(StackMachine<T>& stackMachine)
+void operateOnStackMachine(StackMachine<T>& stackMachine)
 {
-	OperationList<double> opList;
+	OperationList<int> opList;
 	int choice = 0;
 	std::string filename;
 
 
-	while (choice != 15)
+	while (choice != opList.size() + 5)
 	{
 		chooseOperation(choice, opList);
 
-		switch (choice)
+		if (choice >= 1 && choice <= opList.size())
 		{
-		case 1:
+			stackMachine.exectueOperation(opList[choice - 1]);
 			printStack(stackMachine);
-			break;
-
-		case 2:
-			printStack(stackMachine);
-			break;
-
-		case 3:
-			printStack(stackMachine);
-			break;
-
-		case 4:
-			printStack(stackMachine);
-			break;
-
-		case 5:
-			printStack(stackMachine);
-			break;
-
-		case 6:
-			printStack(stackMachine);
-			break;
-
-		case 7:
-			printStack(stackMachine);
-			break;
-
-		case 8:
-			printStack(stackMachine);
-			break;
-
-		case 9:
-			printStack(stackMachine);
-			break;
-
-		case 10:
-			printStack(stackMachine);
-			break;
-
-		case 12:
+		}
+		else if (choice == opList.size() + 1)
+		{
 			std::cout << "Give value to push to stack: ";
 
 			T value;
@@ -105,25 +69,30 @@ inline void operateOnStackMachine(StackMachine<T>& stackMachine)
 
 			stackMachine.push(value);
 			printStack(stackMachine);
-			break;
-
-		case 13:
+		}
+		else if (choice == opList.size() + 2)
+		{
 			stackMachine.pop();
 			printStack(stackMachine);
-			break;
-
-		case 14:
+		}
+		else if (choice == opList.size() + 3)
+		{
+			stackMachine.clear();
+			printStack(stackMachine);
+		}
+		else if (choice == opList.size() + 4)
+		{
 			std::cout << "Give path to file where you want to save your stack: ";
 			std::cin >> filename;
 
 			stackMachine.saveToFile(filename);
-			break;
-
-		case 15:
+		}
+		else if (choice == opList.size() + 5)
+		{
 			std::cout << "Goodbye!" << std::endl;
-			break;
-
-		default:
+		}
+		else
+		{
 			std::cout << "Incorrect operation!" << std::endl;
 		}
 	}
