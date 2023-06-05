@@ -1,13 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Stack.cpp"
-#include "OperationAddition.cpp"
-#include "OperationSubtraction.cpp"
-#include "OperationMultiplication.cpp"
-#include "OperationDivision.cpp"
-#include "OperationXor.cpp"
-#include "OperationNot.cpp"
-#include "OperationSwap.cpp"
+#include "OperationList.cpp"
 
 
 template<typename T>
