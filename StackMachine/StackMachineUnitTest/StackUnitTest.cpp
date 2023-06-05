@@ -24,6 +24,14 @@ namespace StackUnitTest
 			Assert::AreEqual(size_t(1), s.size());
 			Assert::IsFalse(s.isEmpty());
 		}
+		TEST_METHOD(constructorVector)
+		{
+			std::vector<int> v = { 6, 5, 4, 3, 2, 1 };
+			Stack<int> s(v);
+			Assert::IsTrue(v == s.getStack());
+			Assert::AreEqual(size_t(6), s.size());
+			Assert::IsFalse(s.isEmpty());
+		}
 		TEST_METHOD(push_toEmpty)
 		{
 			Stack<int> s;
@@ -100,10 +108,10 @@ namespace StackUnitTest
 			std::ostringstream outputStringStream;
 			outputStringStream << s;
 			std::string expected =
-				"12\n"
-				"16\n"
+				"25\n"
 				"14\n"
-				"25\n";
+				"16\n"
+				"12\n";
 			Assert::AreEqual(expected, outputStringStream.str());
 		}
 	};

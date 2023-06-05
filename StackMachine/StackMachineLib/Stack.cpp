@@ -12,6 +12,7 @@ private:
 public:
 	Stack();
 	Stack(T value);
+	Stack(std::vector<T> values);
 	~Stack();
 
 	std::vector<T> getStack();
@@ -28,7 +29,7 @@ public:
 	{
 		std::vector<T> stackVector = stack.getStack();
 
-		for (int i = 0; i < stackVector.size(); i++)
+		for (int i = stackVector.size() - 1; i >= 0; i--)
 			os << stackVector[i] << "\n";
 
 		return os;
@@ -44,6 +45,12 @@ template<typename T>
 Stack<T>::Stack(T value)
 {
 	push(value);
+}
+
+template<typename T>
+Stack<T>::Stack(std::vector<T> values)
+{
+	stack = values;
 }
 
 template<typename T>

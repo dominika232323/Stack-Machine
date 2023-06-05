@@ -20,7 +20,23 @@ public:
 
 	StackMachine(std::string filename)
 	{
+		std::ifstream inputFile(filename);
 
+		if (inputFile.is_open()) 
+		{
+			int number;
+
+			while (inputFile >> number) 
+			{
+				stack.push(number);
+			}
+
+			inputFile.close();
+		}
+		else {
+			std::cout << "Failed to open the file." << std::endl;
+			return 1;
+		}
 	}
 
 	~StackMachine()
@@ -35,7 +51,7 @@ public:
 
 	void saveToFile(std::string filename)
 	{
-		std::ofstream myfile("example.txt");
+		std::ofstream myfile(filename);
 
 		if (myfile.is_open())
 		{
