@@ -5,8 +5,11 @@
 #include "OperationSubtraction.cpp"
 #include "OperationMultiplication.cpp"
 #include "OperationDivision.cpp"
+#include "OperationAnd.cpp"
+#include "OperationOr.cpp"
 #include "OperationXor.cpp"
 #include "OperationNot.cpp"
+#include "OperationDuplicate.cpp"
 #include "OperationSwap.cpp"
 
 
@@ -16,32 +19,29 @@ class OperationList
 private:
     std::vector<Operation<T>*> operations;
 
-    std::string getElementName(Operation<T>* op)
+    void addOperations()
     {
-        return op->getName();
+        operations.push_back(new OperationAddition<T>());
+        operations.push_back(new OperationSubtraction<T>());
+        operations.push_back(new OperationMultiplication<T>());
+        operations.push_back(new OperationDivision<T>());
+        operations.push_back(new OperationAnd<T>());
+        operations.push_back(new OperationOr<T>());
+        operations.push_back(new OperationXor<T>());
+        operations.push_back(new OperationNot<T>());
+        operations.push_back(new OperationDuplicate<T>());
+        operations.push_back(new OperationSwap<T>());
     }
 
 public:
     OperationList()
     {
-        operations.push_back(new OperationAddition<T>());
-        operations.push_back(new OperationSubtraction<T>());
-        operations.push_back(new OperationMultiplication<T>());
-        operations.push_back(new OperationDivision<T>());
-        operations.push_back(new OperationXor<T>());
-        operations.push_back(new OperationNot<T>());
-        operations.push_back(new OperationSwap<T>());
+        addOperations();
     }
 
     OperationList(const OperationList& list)
     {
-        operations.push_back(new OperationAddition<T>());
-        operations.push_back(new OperationSubtraction<T>());
-        operations.push_back(new OperationMultiplication<T>());
-        operations.push_back(new OperationDivision<T>());
-        operations.push_back(new OperationXor<T>());
-        operations.push_back(new OperationNot<T>());
-        operations.push_back(new OperationSwap<T>());
+        addOperations();
     }
 
     ~OperationList()
@@ -68,7 +68,7 @@ public:
     {
         for (int i = 0; i < opList.size(); i++)
         {
-            os << std::to_string(i + 1) << std::string(". ") << opList.getElementName(opList[i]) << "\n";
+            os << std::to_string(i + 1) << std::string(". ") << opList[i]->getName() << "\n";
         }
 
         return os;
