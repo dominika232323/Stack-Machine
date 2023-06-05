@@ -11,17 +11,17 @@ public:
 
 	void execute(Stack<T>& s)
 	{
+		T a, b = 0;
+		if (!s.isEmpty())
+			a = topAndPopOnStack(s);
+
 		if (canTopAndPopTwice(s))
-		{
-			T a = topAndPopOnStack(s);
-			T b = topAndPopOnStack(s);
-			//s.push(a ^ b);
-		}
-		else if (!s.isEmpty())
-		{
-			T a = topAndPopOnStack(s);
-			//s.push(0 ^ a);
-		}
+			b = topAndPopOnStack(s);
+		
+		if (std::is_integral<T>::value)
+			s.push(a ^ b);
+		else
+			throw std::invalid_argument("Cannot perform bitwise xor.");
 	}
 
 	std::string getName()

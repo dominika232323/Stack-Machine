@@ -14,7 +14,11 @@ public:
 		if (!s.isEmpty())
 		{
 			T a = topAndPopOnStack(s);
-			//s.push(~a);
+			
+			if (std::is_integral<T>::value)
+				s.push(~a);
+			else
+				throw std::invalid_argument("Cannot perform bitwise not.");
 		}
 	}
 
