@@ -11,18 +11,19 @@ public:
 
 	void execute(Stack<T>& s)
 	{
-		T a, b = 0;
-		if (!s.isEmpty())
-			a = topAndPopOnStack(s);
+		if (s.isEmpty())
+			return;
 
-		if (canTopAndPopTwice(s))
-			b = topAndPopOnStack(s);
-		
+		if constexpr (std::is_integral_v<T>)
+		{
+			T a = topAndPopOnStack(s);
+			T b = 0;
 
-		/*if (std::is_integral<T>::value)
+			if (!s.isEmpty())
+				b = topAndPopOnStack(s);
+
 			s.push(a | b);
-		else
-			throw std::invalid_argument("Cannot perform bitwise or.");*/
+		}
 	}
 
 	std::string getName()

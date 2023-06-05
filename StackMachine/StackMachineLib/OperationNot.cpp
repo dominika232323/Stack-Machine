@@ -13,16 +13,10 @@ public:
 	{
 		if (!s.isEmpty())
 		{
-			if (std::is_integral_v<T>)
+			if constexpr (std::is_integral_v<T>)
 			{
 				T a = topAndPopOnStack(s);
-				unsigned char* data = reinterpret_cast<unsigned char*>(&a);
-				for (char c = *data; c; c = *++data) 
-				{
-					c = ~c;
-				}
-				a = *reinterpret_cast<T*>(data);
-				s.push(a);
+				s.push(~a);
 			}
 		}
 	}

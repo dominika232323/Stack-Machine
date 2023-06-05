@@ -6,7 +6,7 @@ int main()
 	std::cout << "Welcome to stack machine!" << std::endl;
 	
 	int choice = 5;
-	StackMachine<double> stackMachine;
+	StackMachine<int> stackMachine;
 	std::string filename;
 
 	while (choice > 3)
