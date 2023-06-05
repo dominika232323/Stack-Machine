@@ -13,12 +13,17 @@ public:
 	{
 		if (!s.isEmpty())
 		{
-			T a = topAndPopOnStack(s);
-			
-			if (std::is_integral<T>::value)
-				s.push(~a);
-			else
-				s.push(a.bitwiseNot());
+			if (std::is_integral_v<T>)
+			{
+				T a = topAndPopOnStack(s);
+				unsigned char* data = reinterpret_cast<unsigned char*>(&a);
+				for (char c = *data; c; c = *++data) 
+				{
+					c = ~c;
+				}
+				a = *reinterpret_cast<T*>(data);
+				s.push(a);
+			}
 		}
 	}
 

@@ -18,10 +18,10 @@ public:
 		if (canTopAndPopTwice(s))
 			b = topAndPopOnStack(s);
 		
-		if (std::is_integral<T>::value)
+		/*if (std::is_integral<T>::value)
 			s.push(a ^ b);
 		else
-			throw std::invalid_argument("Cannot perform bitwise xor.");
+			throw std::invalid_argument("Cannot perform bitwise xor.");*/
 	}
 
 	std::string getName()

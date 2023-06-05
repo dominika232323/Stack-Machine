@@ -19,10 +19,10 @@ public:
 			b = topAndPopOnStack(s);
 		
 
-		if (std::is_integral<T>::value)
+		/*if (std::is_integral<T>::value)
 			s.push(a | b);
 		else
-			throw std::invalid_argument("Cannot perform bitwise or.");
+			throw std::invalid_argument("Cannot perform bitwise or.");*/
 	}
 
 	std::string getName()
