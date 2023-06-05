@@ -20,12 +20,7 @@ public:
 
 	StackMachine(std::string filename)
 	{
-		//stack = ReadFromFile<T>::readStackFromFile(filename);
-	}
-
-	void executeOperationsFromFile(std::string filename)
-	{
-
+		stack = ReadFromFile<T>::readStackFromFile(filename);
 	}
 
 	void saveToFile(std::string filename)
@@ -34,8 +29,7 @@ public:
 
 		if (myfile.is_open())
 		{
-			myfile << "This is a line.\n";
-			myfile << "This is another line.\n";
+			myfile << stack;
 			myfile.close();
 		}
 		else
@@ -61,6 +55,12 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& os, StackMachine<T>& stackMachine)
 	{
+		if (stackMachine.stack.isEmpty())
+		{
+			os << "Empty stack.";
+			return os;
+		}
+
 		std::vector<T> stackVector = stackMachine.stack.getStack();
 
 		for (int i = 0; i < stackVector.size(); i++)

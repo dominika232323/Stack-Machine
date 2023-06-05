@@ -98,14 +98,6 @@ inline void operateOnStackMachine(StackMachine<T>& stackMachine)
 			printStack(stackMachine);
 			break;
 
-		case 11:
-			std::cout << "Give path to file with your operations: ";
-			std::cin >> filename;
-
-			stackMachine.executeOperationsFromFile(filename);
-			printStack(stackMachine);
-			break;
-
 		case 12:
 			std::cout << "Give value to push to stack: ";
 
