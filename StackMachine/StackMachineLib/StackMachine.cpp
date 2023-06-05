@@ -15,7 +15,6 @@ private:
 public:
 	StackMachine()
 	{
-
 	}
 
 	StackMachine(std::string filename)
@@ -32,13 +31,13 @@ public:
 				numbers.push_back(number);
 			}
 
-			stack
+			stack(numbers);
 
 			inputFile.close();
 		}
-		else {
-			std::cout << "Failed to open the file." << std::endl;
-			return 1;
+		else 
+		{
+			throw std::exception("Cannot open file.");
 		}
 	}
 
