@@ -3,8 +3,8 @@
 
 
 template<typename T>
-class OperationAddition : public Operation
+class OperationAddition : public Operation<T>
 {
 public:
-	void execute(Stack& s);
+	void execute(Stack<T>& s);
 };
