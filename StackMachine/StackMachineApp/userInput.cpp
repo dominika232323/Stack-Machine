@@ -2,6 +2,7 @@
 #include <sstream>
 #include <string>
 #include "../StackMachineLib/StackMachine.cpp"
+#include "../StackMachineLib/OperationList.cpp"
 
 
 void invalidInput()
@@ -26,23 +27,20 @@ inline void chooseStackMachineCreation(int& choice)
 }
 
 
-inline void chooseOperation(int& choice)
+void printAdditionalOperations(int opListSize, int offset, std::string text)
 {
-	std::cout << "Choose 1 to execute addition." << std::endl;
-	std::cout << "Choose 2 to execute subtraction." << std::endl;
-	std::cout << "Choose 3 to execute multiplication." << std::endl;
-	std::cout << "Choose 4 to execute divison." << std::endl;
-	std::cout << "Choose 5 to execute bitwise and." << std::endl;
-	std::cout << "Choose 6 to execute bitwise or." << std::endl;
-	std::cout << "Choose 7 to execute bitwise xor." << std::endl;
-	std::cout << "Choose 8 to execute bitwise not." << std::endl;
-	std::cout << "Choose 9 to execute swap." << std::endl;
-	std::cout << "Choose 10 to execute duplicate." << std::endl;
-	std::cout << "Choose 11 to execute operation from txt file." << std::endl;
-	std::cout << "Choose 12 to push value to stack." << std::endl;
-	std::cout << "Choose 13 to pop value from stack." << std::endl;
-	std::cout << "Choose 14 to save stack machine to txt file." << std::endl;
-	std::cout << "Choose 15 to exit." << std::endl;
+	std::cout << opListSize + offset << ". " << text << std::endl;
+}
+
+template<typename T>
+inline void chooseOperation(int& choice, OperationList<T>& opList)
+{
+	std::cout << opList;
+	printAdditionalOperations(opList.size(), 1, "push");
+	printAdditionalOperations(opList.size(), 2, "pop");
+	printAdditionalOperations(opList.size(), 3, "execute operations from file");
+	printAdditionalOperations(opList.size(), 4, "save to file");
+	printAdditionalOperations(opList.size(), 5, "exit");
 	
 	std::string input;
 	std::cout << "I choose: ";
@@ -71,13 +69,14 @@ void printStack(StackMachine<T>& stackMachine)
 template<typename T>
 inline void operateOnStackMachine(StackMachine<T>& stackMachine)
 {
+	OperationList<double> opList;
 	int choice = 0;
 	std::string filename;
 
 
 	while (choice != 15)
 	{
-		chooseOperation(choice);
+		chooseOperation(choice, opList);
 
 		switch (choice)
 		{
