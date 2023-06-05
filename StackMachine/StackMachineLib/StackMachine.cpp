@@ -35,10 +35,18 @@ public:
 
 	void saveToFile(std::string filename)
 	{
-		/*ofstream myfile;
-		myfile.open("example.txt");
-		myfile << stack;
-		myfile.close();*/
+		std::ofstream myfile("example.txt");
+
+		if (myfile.is_open())
+		{
+			myfile << "This is a line.\n";
+			myfile << "This is another line.\n";
+			myfile.close();
+		}
+		else
+		{
+			throw std::exception("Cannot open file.");
+		}
 	}
 
 	void exectueOperation(Operation<T>* operation)
