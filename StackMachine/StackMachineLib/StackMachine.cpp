@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <fstream>
+#include <string>
 #include "Stack.cpp"
 #include "OperationList.cpp"
 
@@ -33,7 +35,10 @@ public:
 
 	void saveToFile(std::string filename)
 	{
-
+		/*ofstream myfile;
+		myfile.open("example.txt");
+		myfile << stack;
+		myfile.close();*/
 	}
 
 	void exectueOperation(Operation<T>* operation)

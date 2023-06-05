@@ -90,5 +90,21 @@ namespace StackUnitTest
 			Assert::IsFalse(s.isEmpty());
 			Assert::AreEqual(25, a);
 		}
+		TEST_METHOD(operatorStream)
+		{
+			Stack<int> s;
+			s.push(12);
+			s.push(16);
+			s.push(14);
+			s.push(25);
+			std::ostringstream outputStringStream;
+			outputStringStream << s;
+			std::string expected =
+				"12\n"
+				"16\n"
+				"14\n"
+				"25\n";
+			Assert::AreEqual(expected, outputStringStream.str());
+		}
 	};
 }

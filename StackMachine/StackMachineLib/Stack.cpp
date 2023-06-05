@@ -23,6 +23,16 @@ public:
 	void pop();
 
 	T top();
+
+	friend std::ostream& operator<<(std::ostream& os, Stack<T>& stack)
+	{
+		std::vector<T> stackVector = stack.getStack();
+
+		for (int i = 0; i < stackVector.size(); i++)
+			os << stackVector[i] << "\n";
+
+		return os;
+	}
 };
 
 template<typename T>
