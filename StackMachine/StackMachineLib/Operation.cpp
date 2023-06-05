@@ -24,9 +24,3 @@ public:
 	virtual void execute(Stack<T>& s) = 0;
 };
 
-/*
-dodawanie
-odejmowanie
-mno¿enie
-dzielenie
-*/
