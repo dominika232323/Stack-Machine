@@ -159,6 +159,7 @@
     <ClCompile Include="OperationAdditionUnitTest.cpp" />
     <ClCompile Include="OperationAndUnitTest.cpp" />
     <ClCompile Include="OperationDivisionUnitTest.cpp" />
+    <ClCompile Include="OperationDuplicateUnitTest.cpp" />
     <ClCompile Include="OperationMultiplicationUnitTest.cpp" />
     <ClCompile Include="OperationNotUnitTest.cpp" />
     <ClCompile Include="OperationOrUnitTest.cpp" />
