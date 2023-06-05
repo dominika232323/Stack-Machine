@@ -13,8 +13,7 @@ public:
 	Stack();
 	Stack(T value);
 	Stack(std::vector<T> values);
-	~Stack();
-
+	
 	std::vector<T> getStack();
 	size_t size();
 	
@@ -51,11 +50,6 @@ template<typename T>
 Stack<T>::Stack(std::vector<T> values)
 {
 	stack = values;
-}
-
-template<typename T>
-Stack<T>::~Stack()
-{
 }
 
 template<typename T>

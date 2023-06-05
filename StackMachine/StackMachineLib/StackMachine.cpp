@@ -24,12 +24,15 @@ public:
 
 		if (inputFile.is_open()) 
 		{
-			int number;
+			std::vector<T> numbers;
+			T number;
 
 			while (inputFile >> number) 
 			{
-				stack.push(number);
+				numbers.push_back(number);
 			}
+
+			stack
 
 			inputFile.close();
 		}
@@ -37,11 +40,6 @@ public:
 			std::cout << "Failed to open the file." << std::endl;
 			return 1;
 		}
-	}
-
-	~StackMachine()
-	{
-
 	}
 
 	void executeOperationsFromFile(std::string filename)
