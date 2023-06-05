@@ -11,6 +11,7 @@ namespace OperationListUnitTest
 		TEST_METHOD(constructor)
 		{
 			OperationList<int> op;
+			Assert::AreEqual(10, op.size());
 
 			std::ostringstream outputStringStream;
 			outputStringStream << op;
