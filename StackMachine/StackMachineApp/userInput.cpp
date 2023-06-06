@@ -10,7 +10,18 @@ inline void chooseStackMachineCreation(int& choice)
 	std::cout << "Choose 2 to start a new stack machine." << std::endl;
 	std::cout << "Choose 3 to exit." << std::endl;
 	std::cout << "I choose: ";
-	std::cin >> choice;
+
+	std::string choiceStr;
+	getline(std::cin, choiceStr);
+
+	try
+	{
+		choice = stoi(choiceStr);
+	}
+	catch (...)
+	{
+		choice = 0;
+	}
 }
 
 
@@ -26,10 +37,19 @@ inline StackMachine<int> createStackMachine()
 		if (choice == 1)
 		{
 			std::cout << "Give path to file with your stack: ";
-			std::cin >> filename;
+			getline(std::cin, filename);
 
-			StackMachine<int> sm(filename);
-			return sm;
+			try
+			{
+				StackMachine<int> sm(filename);
+				return sm;
+			}
+			catch (...)
+			{
+				std::cout << std::endl;
+				std::cout << "Cannot open file." << std::endl;
+				std::cout << std::endl;
+			}
 		}
 		else if (choice == 2)
 		{
@@ -45,7 +65,6 @@ inline StackMachine<int> createStackMachine()
 		{
 			std::cout << "Incorrect choice! Choose again." << std::endl;
 			std::cout << std::endl;
-			chooseStackMachineCreation(choice);
 		}
 	}
 }
@@ -59,9 +78,19 @@ inline void chooseOperation(int& choice, OperationList<int>& opList)
 	std::cout << opList.size() + 3 << ". " << "clear" << std::endl;
 	std::cout << opList.size() + 4 << ". " << "save to file" << std::endl;
 	std::cout << opList.size() + 5 << ". " << "exit" << std::endl;
-	
 	std::cout << "I choose: ";
-	std::cin >> choice;
+	
+	std::string choiceStr;
+	getline(std::cin, choiceStr);
+
+	try
+	{
+		choice = stoi(choiceStr);
+	}
+	catch (...)
+	{
+		choice = opList.size() + 6;
+	}
 }
 
 
@@ -83,39 +112,55 @@ inline void operateOnStackMachine(StackMachine<int>& stackMachine)
 
 	while (choice != opList.size() + 5)
 	{
+		printStack(stackMachine);
 		chooseOperation(choice, opList);
 
 		if (choice >= 1 && choice <= opList.size())
 		{
 			stackMachine.exectueOperation(opList[choice - 1]);
-			printStack(stackMachine);
 		}
 		else if (choice == opList.size() + 1)
 		{
 			std::cout << "Give value to push to stack: ";
 
 			int value;
-			std::cin >> value;
+			std::string choiceStr;
+			getline(std::cin, choiceStr);
 
-			stackMachine.push(value);
-			printStack(stackMachine);
+			try
+			{
+				value = stoi(choiceStr);
+				stackMachine.push(value);
+			}
+			catch (...)
+			{
+				std::cout << std::endl;
+				std::cout << "Incorrect value!" << std::endl;
+			}
 		}
 		else if (choice == opList.size() + 2)
 		{
 			stackMachine.pop();
-			printStack(stackMachine);
 		}
 		else if (choice == opList.size() + 3)
 		{
 			stackMachine.clear();
-			printStack(stackMachine);
 		}
 		else if (choice == opList.size() + 4)
 		{
 			std::cout << "Give path to file where you want to save your stack: ";
-			std::cin >> filename;
+			getline(std::cin, filename);
 
-			stackMachine.saveToFile(filename);
+			try
+			{
+				stackMachine.saveToFile(filename);
+			}
+			catch (...)
+			{
+				std::cout << std::endl;
+				std::cout << "Cannot open file." << std::endl;
+				std::cout << std::endl;
+			}
 		}
 		else if (choice == opList.size() + 5)
 		{
