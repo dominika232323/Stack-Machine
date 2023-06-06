@@ -37,7 +37,7 @@ inline StackMachine<int> createStackMachine()
 		if (choice == 1)
 		{
 			std::cout << "Give path to file with your stack: ";
-			std::cin >> filename;
+			getline(std::cin, filename);
 
 			try
 			{
@@ -46,7 +46,9 @@ inline StackMachine<int> createStackMachine()
 			}
 			catch (...)
 			{
+				std::cout << std::endl;
 				std::cout << "Cannot open file." << std::endl;
+				std::cout << std::endl;
 			}
 		}
 		else if (choice == 2)
@@ -147,16 +149,17 @@ inline void operateOnStackMachine(StackMachine<int>& stackMachine)
 		else if (choice == opList.size() + 4)
 		{
 			std::cout << "Give path to file where you want to save your stack: ";
-			std::cin >> filename;
+			getline(std::cin, filename);
 
-			//stackMachine.saveToFile(filename);
 			try
 			{
 				stackMachine.saveToFile(filename);
 			}
 			catch (...)
 			{
+				std::cout << std::endl;
 				std::cout << "Cannot open file." << std::endl;
+				std::cout << std::endl;
 			}
 		}
 		else if (choice == opList.size() + 5)
