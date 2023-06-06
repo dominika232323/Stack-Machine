@@ -10,7 +10,18 @@ inline void chooseStackMachineCreation(int& choice)
 	std::cout << "Choose 2 to start a new stack machine." << std::endl;
 	std::cout << "Choose 3 to exit." << std::endl;
 	std::cout << "I choose: ";
-	std::cin >> choice;
+
+	std::string choiceStr;
+	getline(std::cin, choiceStr);
+
+	try
+	{
+		choice = stoi(choiceStr);
+	}
+	catch (...)
+	{
+		choice = 0;
+	}
 }
 
 
@@ -28,8 +39,15 @@ inline StackMachine<int> createStackMachine()
 			std::cout << "Give path to file with your stack: ";
 			std::cin >> filename;
 
-			StackMachine<int> sm(filename);
-			return sm;
+			try
+			{
+				StackMachine<int> sm(filename);
+				return sm;
+			}
+			catch (...)
+			{
+				std::cout << "Cannot open file." << std::endl;
+			}
 		}
 		else if (choice == 2)
 		{
@@ -59,9 +77,19 @@ inline void chooseOperation(int& choice, OperationList<int>& opList)
 	std::cout << opList.size() + 3 << ". " << "clear" << std::endl;
 	std::cout << opList.size() + 4 << ". " << "save to file" << std::endl;
 	std::cout << opList.size() + 5 << ". " << "exit" << std::endl;
-	
 	std::cout << "I choose: ";
-	std::cin >> choice;
+	
+	std::string choiceStr;
+	getline(std::cin, choiceStr);
+
+	try
+	{
+		choice = stoi(choiceStr);
+	}
+	catch (...)
+	{
+		choice = opList.size() + 6;
+	}
 }
 
 
@@ -95,9 +123,20 @@ inline void operateOnStackMachine(StackMachine<int>& stackMachine)
 			std::cout << "Give value to push to stack: ";
 
 			int value;
-			std::cin >> value;
+			std::string choiceStr;
+			getline(std::cin, choiceStr);
 
-			stackMachine.push(value);
+			try
+			{
+				value = stoi(choiceStr);
+				stackMachine.push(value);
+			}
+			catch (...)
+			{
+				std::cout << std::endl;
+				std::cout << "Incorrect value!" << std::endl;
+			}
+
 			printStack(stackMachine);
 		}
 		else if (choice == opList.size() + 2)
@@ -116,6 +155,14 @@ inline void operateOnStackMachine(StackMachine<int>& stackMachine)
 			std::cin >> filename;
 
 			stackMachine.saveToFile(filename);
+			/*try
+			{
+				stackMachine.saveToFile(filename);
+			}
+			catch (...)
+			{
+				std::cout << "Cannot open file." << std::endl;
+			}*/
 		}
 		else if (choice == opList.size() + 5)
 		{
