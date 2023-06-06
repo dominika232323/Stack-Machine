@@ -63,7 +63,6 @@ inline StackMachine<int> createStackMachine()
 		{
 			std::cout << "Incorrect choice! Choose again." << std::endl;
 			std::cout << std::endl;
-			chooseStackMachineCreation(choice);
 		}
 	}
 }
@@ -111,12 +110,12 @@ inline void operateOnStackMachine(StackMachine<int>& stackMachine)
 
 	while (choice != opList.size() + 5)
 	{
+		printStack(stackMachine);
 		chooseOperation(choice, opList);
 
 		if (choice >= 1 && choice <= opList.size())
 		{
 			stackMachine.exectueOperation(opList[choice - 1]);
-			printStack(stackMachine);
 		}
 		else if (choice == opList.size() + 1)
 		{
@@ -136,33 +135,29 @@ inline void operateOnStackMachine(StackMachine<int>& stackMachine)
 				std::cout << std::endl;
 				std::cout << "Incorrect value!" << std::endl;
 			}
-
-			printStack(stackMachine);
 		}
 		else if (choice == opList.size() + 2)
 		{
 			stackMachine.pop();
-			printStack(stackMachine);
 		}
 		else if (choice == opList.size() + 3)
 		{
 			stackMachine.clear();
-			printStack(stackMachine);
 		}
 		else if (choice == opList.size() + 4)
 		{
 			std::cout << "Give path to file where you want to save your stack: ";
 			std::cin >> filename;
 
-			stackMachine.saveToFile(filename);
-			/*try
+			//stackMachine.saveToFile(filename);
+			try
 			{
 				stackMachine.saveToFile(filename);
 			}
 			catch (...)
 			{
 				std::cout << "Cannot open file." << std::endl;
-			}*/
+			}
 		}
 		else if (choice == opList.size() + 5)
 		{
