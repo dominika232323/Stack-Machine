@@ -14,8 +14,44 @@ inline void chooseStackMachineCreation(int& choice)
 }
 
 
-template<typename T>
-void chooseOperation(int& choice, OperationList<T>& opList)
+inline StackMachine<int> createStackMachine()
+{
+	int choice = 0;
+	std::string filename;
+
+	while (choice != 3)
+	{
+		chooseStackMachineCreation(choice);
+
+		if (choice == 1)
+		{
+			std::cout << "Give path to file with your stack: ";
+			std::cin >> filename;
+
+			StackMachine<int> sm(filename);
+			return sm;
+		}
+		else if (choice == 2)
+		{
+			StackMachine<int> sm;
+			return sm;
+		}
+		else if (choice == 3)
+		{
+			std::cout << "Goodbye!" << std::endl;
+			exit(0);
+		}
+		else
+		{
+			std::cout << "Incorrect choice! Choose again." << std::endl;
+			std::cout << std::endl;
+			chooseStackMachineCreation(choice);
+		}
+	}
+}
+
+
+inline void chooseOperation(int& choice, OperationList<int>& opList)
 {
 	std::cout << opList;
 	std::cout << opList.size() + 1 << ". " << "push" << std::endl;
@@ -29,8 +65,7 @@ void chooseOperation(int& choice, OperationList<T>& opList)
 }
 
 
-template<typename T>
-void printStack(StackMachine<T>& stackMachine)
+inline void printStack(StackMachine<int>& stackMachine)
 {
 	std::cout << std::endl;
 	std::cout << "Your stack: " << std::endl;
@@ -39,8 +74,7 @@ void printStack(StackMachine<T>& stackMachine)
 }
 
 
-template<typename T>
-void operateOnStackMachine(StackMachine<T>& stackMachine)
+inline void operateOnStackMachine(StackMachine<int>& stackMachine)
 {
 	OperationList<int> opList;
 	int choice = 0;
@@ -60,7 +94,7 @@ void operateOnStackMachine(StackMachine<T>& stackMachine)
 		{
 			std::cout << "Give value to push to stack: ";
 
-			T value;
+			int value;
 			std::cin >> value;
 
 			stackMachine.push(value);
@@ -89,7 +123,9 @@ void operateOnStackMachine(StackMachine<T>& stackMachine)
 		}
 		else
 		{
+			std::cout << std::endl;
 			std::cout << "Incorrect operation!" << std::endl;
+			std::cout << std::endl;
 		}
 	}
 }
