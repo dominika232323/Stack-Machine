@@ -117,7 +117,14 @@ inline void operateOnStackMachine(StackMachine<int>& stackMachine)
 
 		if (choice >= 1 && choice <= opList.size())
 		{
-			stackMachine.exectueOperation(opList[choice - 1]);
+			try
+			{
+				stackMachine.exectueOperation(opList[choice - 1]);
+			}
+			catch (...)
+			{
+				std::cout << "Cannot execute operation." << std::endl;
+			}
 		}
 		else if (choice == opList.size() + 1)
 		{

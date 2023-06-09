@@ -18,7 +18,10 @@ public:
 				T a = topAndPopOnStack(s);
 
 				if (a == 0)
+				{
+					s.push(a);
 					throw std::invalid_argument("Cannot devide by zero.");
+				}
 
 				T b = topAndPopOnStack(s);
 				s.push(b / a);
